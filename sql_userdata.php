@@ -56,7 +56,7 @@ echo "<form action='$PHP_SELF?userid=".$_REQUEST["userid"]."' method='post'>\n";
 	{
 		$USER=$_POST["username"];
 
-		$sql ="SELECT * FROM `users` WHERE `id`=".$USER."";
+		$sql ="SELECT * FROM `users` WHERE `id`=".mysql_escape_string($USER)."";
 		$result = MYSQL_QUERY($sql);
 		$result_ = mysql_fetch_array($result);
 

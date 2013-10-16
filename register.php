@@ -15,14 +15,14 @@ $sql = "SELECT ".
 
   "WHERE ".
 
-    "(username like '".$_REQUEST["username"]."')";
+    "(username like '".mysql_escape_string($_REQUEST["username"])."')";
 
 $result = mysql_query($sql);
 
 if (mysql_num_rows($result) > 0)
 {
 	mysql_close();
-   //Username allready in use
+   //Username already in use
   	header ("Location: createuser.php?userid=".$_REQUEST["userid"]."&fehler2=1");
 }
 else if($_REQUEST["pwd1"] != $_REQUEST["pwd2"])
@@ -50,11 +50,11 @@ else
   else
     $admin = 0;
   $sql = "INSERT INTO users (username, password, full_name, email, type) VALUES ('".
-         $_REQUEST["username"]."','".md5($_REQUEST["pwd1"])."','".$_REQUEST["fullname"]."','".$_REQUEST["email"]."',".$admin.")";
+         mysql_escape_string($_REQUEST["username"])."','".md5($_REQUEST["pwd1"])."','".mysql_escape_string($_REQUEST["fullname"])."','".mysql_escape_string($_REQUEST["email"])."',".$admin.")";
   $result = mysql_query($sql);
   if (!$result)
 	header ("Location: createuser.php?userid=".$_REQUEST["userid"]."&fehler6=1");
-	
+
   mysql_close();
   
   header ("Location: createuser.php?userid=".$_REQUEST["userid"]."&erfolg=1");

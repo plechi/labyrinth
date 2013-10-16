@@ -20,7 +20,7 @@ else if ($_REQUEST["pwd1"] == "")
 }
 else
 {
-  $sql = "UPDATE users SET password='".md5($_REQUEST["pwd1"])."', full_name='".$_REQUEST["fullname"]."', email='".$_REQUEST["email"]."' WHERE ( id like '".$_SESSION["user_id"]."' )";
+  $sql = "UPDATE users SET password='".md5($_REQUEST["pwd1"])."', full_name='".mysql_escape_string($_REQUEST["fullname"])."', email='".mysql_escape_string($_REQUEST["email"])."' WHERE ( id like '".mysql_escape_string($_SESSION["user_id"])."' )";
   $result = mysql_query($sql);
 
   mysql_close();

@@ -57,7 +57,7 @@ include 'database.php';
 					  echo "</td></tr>";
 					}
 
-$sql = "SELECT * FROM users WHERE (id like '".$_REQUEST["userid"]."')";
+$sql = "SELECT * FROM users WHERE (id like '".mysql_escape_string($_REQUEST["userid"])."')";
 
 $result = mysql_query($sql);
 $row = mysql_fetch_array($result);

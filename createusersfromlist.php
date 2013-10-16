@@ -92,6 +92,8 @@ function passwortgenerator($number)
 
 function send_mail($email, $full_name, $username, $pwd, $from)
 {
+    $email = str_replace("\r", '', $email);
+    $email = str_replace("\n", '', $email);
 	if(strlen($email)!=0)
 	{
 		if(mail($email,"Grundlagen der Informatik 2006 - Registration for $full_name",
@@ -160,7 +162,7 @@ function readFileOnServer($name_on_server)
 					if (mysql_num_rows($result) > 0)
 					{
 						//Username allready in use
-						$sql = "UPDATE users SET full_name='".$full_name."', email='".$email."' WHERE (username like '".$username."')";
+						$sql = "UPDATE users SET full_name='".mysql_escape_string($full_name)."', email='".mysql_escape_string($email)."' WHERE (username like '".mysql_escape_string($username)."')";
 						$result = mysql_query($sql);
 						if ($result)
 							echo "Benuzter geändert</td><td></td>";
@@ -168,7 +170,7 @@ function readFileOnServer($name_on_server)
 					else
 					{
 						$pwd=passwortgenerator(5);
-						$sql = "INSERT INTO users (username, password, full_name, email, type) VALUES ('$username','".md5($pwd)."','$full_name','$email','0')";
+						$sql = "INSERT INTO users (username, password, full_name, email, type) VALUES ('".mysql_escape_string($username)."','".md5($pwd)."','".mysql_escape_string($full_name)."','".mysql_escape_string($email)."','0')";
 						$result = mysql_query($sql);
 						if (!$result)
 							echo "FEHLER: Benuzter nicht hinzugefügt</td><td></td>";

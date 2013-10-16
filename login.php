@@ -8,7 +8,7 @@ $error=0;
 
 if($_REQUEST["adminname"]!="" && $_REQUEST["adminpwd"]!="")
 {
-	$sql_ = "SELECT * FROM users WHERE (username like '".$_REQUEST["adminname"]."') AND (password = '".md5 ($_REQUEST["adminpwd"])."')";
+	$sql_ = "SELECT * FROM users WHERE (username like '".mysql_escape_string($_REQUEST["adminname"])."') AND (password = '".md5($_REQUEST["adminpwd"])."')";
 
 	$result_ = mysql_query($sql_);
 
@@ -41,7 +41,7 @@ $sql = "SELECT ".
   "FROM ".
     "users ".
   "WHERE ".
-    "(username like '".$_REQUEST["name"]."') AND ".
+    "(username like '".mysql_escape_string($_REQUEST["name"])."') AND ".
     "(password = '".md5 ($_REQUEST["pwd"])."')";
 
 $result = mysql_query($sql);

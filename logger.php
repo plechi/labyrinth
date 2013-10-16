@@ -11,7 +11,7 @@ if (isset ($_SESSION["user_username"]) && ($_REQUEST["userid"] == $_SESSION["use
 	$text=$_REQUEST["text"];
 	$level=$_REQUEST["level"];
 
-	$sql = "INSERT INTO usage_log (id, time, entry, user_id, level) values ('NULL', NOW(), '".$text."', ".$user_id.", '".$level."')";
+	$sql = "INSERT INTO usage_log (id, time, entry, user_id, level) values ('NULL', NOW(), '".mysql_escape_string($text)."', ".mysql_escape_string($user_id).", '".mysql_escape_string($level)."')";
 
 	$result = mysql_query($sql);
 
