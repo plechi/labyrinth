@@ -18,8 +18,6 @@ import controller.TUGInformations;
 import java.lang.System;
 
 import netscape.javascript.*;
-import netscape.javascript.JSObject;
-import netscape.javascript.JSException;
 /*
  * JApplet.java
  *

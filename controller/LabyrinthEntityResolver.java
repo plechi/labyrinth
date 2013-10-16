@@ -43,15 +43,9 @@ public class LabyrinthEntityResolver implements EntityResolver
 					throws SAXException, IOException, MalformedURLException
 	{
 		System.out.println("resolveEntity ("+publicId+", "+systemId+")");
-// 		if (systemId.equals("http://www.myhost.com/today")) {
-// 							// return a special input source
-// 			MyReader reader = new MyReader();
-// 			return new InputSource(reader);
-// 		} else {
-// 							// use the default behaviour
-// 			return null;
-// 		}
-// 		Reader reader = new Reader();
+
+        if (systemId.endsWith("/LabyrinthLevel.dtd"))
+            systemId = "########LabyrinthLevel.dtd";
 
 		URL new_url;
 		try
