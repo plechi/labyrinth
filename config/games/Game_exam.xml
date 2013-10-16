@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE LabyrinthGame SYSTEM "Game.dtd">
+<LabyrinthGame>
+  <Levels>
+    <Level>
+      <Name> Labyrinth 1 </Name>
+      <File> config/games/judith1.xml </File>
+    </Level>
+    <Level>
+	<Name> Labyrinth 2 </Name>
+	<File> config/games/judith2.xml </File>
+    </Level>
+    <Level>
+	  <Name> Labyrinth 3 </Name>
+	  <File> config/games/judith3.xml </File>
+    </Level>
+    <Level>
+	  <Name> Labyrinth 4 </Name>
+	  <File> config/games/judith4.xml </File>
+    </Level>
+    <Level>
+	    <Name> Labyrinth 5 </Name>
+	    <File> config/games/judith5.xml </File>
+    </Level>
+    <Level>
+	    <Name> Labyrinth 6 </Name>
+	    <File> config/games/judith6.xml </File>
+    </Level>
+    <Level>
+	    <Name> Labyrinth 7 </Name>
+	    <File> config/games/judith7.xml </File>
+    </Level>
+    <Level>
+	    <Name> Labyrinth 8 </Name>
+	    <File> config/games/judith8.xml </File>
+    </Level>
+    <Level>
+	    <Name> Labyrinth 9 </Name>
+	    <File> config/games/judith9.xml </File>
+    </Level>
+    <Level>
+	    <Name> Labyrinth 10 </Name>
+	    <File> config/games/judith10.xml </File>
+    </Level>
+</Levels>
+</LabyrinthGame>

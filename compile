@@ -1,0 +1,117 @@
+#!/bin/bash
+
+function usage()
+{
+	echo "-c for clear *.class, *.java~"
+	echo "-f for compile without Warnings"
+	echo "-w for compile with Warnings"
+	echo "-p for create jar and cab archiev"
+	echo "-a for -c -w -d -p"
+	echo "-d to generate the HTML documentation"
+	echo "-h for help"
+
+	exit 1
+}
+
+function compile()
+{
+	if [ ! -x /usr/bin/javac ];then
+		echo "/usr/bin/javac nicht gefunden (java)"
+		exit 1
+	fi
+	version=`cat add_to_version.txt`
+	/usr/bin/javac $1 controller/*.java gui/*.java
+	echo "<? echo \"`svnversion -n .`$version\"; ?>" > versionsnumber.php
+	echo "Version: `svnversion .`$version"
+}
+
+function doc()
+{
+	if [ ! -x /usr/bin/javadoc ];then
+		echo "/usr/bin/javadoc nicht gefunden (java)"
+		exit 1
+	fi
+	/usr/bin/javadoc controller/*.java gui/*.java -d doc
+}
+
+function clean()
+{
+	rm -f ./gui/*.class ./controller/*.class
+	rm -f ./gui/*.java~ ./controller/*.java~
+	rm -f ./*.php~ ./*.html~
+}
+
+function clean_archiev()
+{
+	if [ -w ./labyrinth.jar ];then
+		rm labyrinth.jar
+	fi
+	if [ -w ./labyrinth.cab ];then
+		rm labyrinth.cab
+	fi
+}
+
+function archiev()
+{
+	if [ ! -x /usr/bin/jar ];then
+		echo "/usr/bin/jar nicht gefunden (java)"
+		exit 1
+	fi
+	if [ ! -x /usr/bin/lcab ];then
+		echo "/usr/bin/lcab nicht gefunden (lcab)"
+		exit 1
+	fi
+	/usr/bin/jar cvf labyrinth.jar ./gui/*.class ./controller/*.class ./Images/*.gif  ./Images/*.jpg ./config/games/*.xml ./config/games/*.dtd
+	/usr/bin/lcab ./gui/*.class ./controller/*.class ./Images/*.gif  ./Images/*.jpg ./config/games/*.xml ./config/games/*.dtd labyrinth.cab
+
+}
+
+
+
+if [ $# == "0" ];then
+	clean_archiev
+	compile
+fi
+while [ "$#" -gt "0" ]; do
+   case $1 in
+      -f)
+					shift 1
+					clean_archiev
+					compile
+          ;;
+      -w)
+					shift 1
+					clean_archiev
+					compile -deprecation
+          ;;
+      -c)
+    					shift 1
+        				clean
+					clean_archiev
+          ;;
+      -d)
+        				shift 1
+					doc
+	  ;;
+      -p)				shift 1
+    					clean_archiev
+    					archiev
+	  ;;
+      -a)
+					shift 1
+					clean
+					clean_archiev
+					compile -deprecation
+					doc
+					archiev
+          ;;
+
+      -h)
+        				shift 1
+					usage
+					;;
+      *)  #echo "Unerwartete Option $1"
+          usage
+          ;;
+   esac
+done

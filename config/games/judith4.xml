@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE LabyrinthLevel SYSTEM "LabyrinthLevel.dtd">
+<LabyrinthLevel>
+	<Name> Labyrinth 4 </Name>
+	<Dimension>
+		<width> 20 </width>
+		<height> 20 </height>
+	</Dimension>
+	<Labyrinth>
+		<StartSymbol> S </StartSymbol>
+		<WallSymbol> W </WallSymbol>
+		<DiamondSymbol> D </DiamondSymbol>
+		<WaySymbol> . </WaySymbol>
+		<ZeroSymbol> 0 </ZeroSymbol>
+		<OneSymbol> 1 </OneSymbol>
+		<TwoSymbol> 2 </TwoSymbol>
+		<ThreeSymbol> 3 </ThreeSymbol>
+		<StartingDirection> UP </StartingDirection>
+		<LabyrinthField>
+			WWWWWWWWWWWWWWWWWWWW
+			W........WWWWWWWWWWW
+			W.WWWWWW.WWWWW.....W
+			WDD...WW.WWWWW.WWW.W
+			WWWWW.WW.D...W.WWWDW
+			WWWWW.W.WWWW.WDWWW.W
+			WWWWW.W...D..W.WWW.W
+			WWWWW.WWWWWWWW.WWW.W
+			WWWWWD.........WWW.W
+			WWWWWWWWWWWWWWWWWW.W
+			WWWWWWWWWWWWW..D...W
+			WWWWWWWWWWWWW.WWWWWW
+			WWWWWWWWWWWWW.WWWWWW
+			WWWWWWWWWWWWW.WWWWWW
+			WWWWWWWWWWWWW.WWWWWW
+			WWWWWWWWWWWWW......W
+			WWWWWWWWWD...WWWWWDW
+			WWWWWWWWW.WW.WWWWW.W
+			WWWWWWWWW.WW.......W
+			WWWWWWWWWSWWWWWWWWWW
+		</LabyrinthField>
+	</Labyrinth>
+</LabyrinthLevel>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!ELEMENT LabyrinthInstructionTXT (ConditionStartString, ConditionEndString, ActionStartString, ActionEndString, ConditionActionSeparatorString, SeparatorString, CommentOutLineString, CommentOutStartString, CommentOutEndString, DeactivateInstructionString, WallString, WayString, DirectionLeftString, DirectionAheadString, DirectionRightString, DirectionBackString)>
+<!ELEMENT ConditionStartString (#PCDATA)>
+<!ELEMENT ConditionEndString (#PCDATA)>
+<!ELEMENT ActionStartString (#PCDATA)>
+<!ELEMENT ActionEndString (#PCDATA)>
+<!ELEMENT ConditionActionSeparatorString (#PCDATA)>
+<!ELEMENT SeparatorString (#PCDATA)>
+<!ELEMENT CommentOutLineString (#PCDATA)>
+<!ELEMENT CommentOutStartString (#PCDATA)>
+<!ELEMENT CommentOutEndString (#PCDATA)>
+<!ELEMENT DeactivateInstructionString (#PCDATA)>
+<!ELEMENT WallString (#PCDATA)>
+<!ELEMENT WayString (#PCDATA)>
+<!ELEMENT DirectionLeftString (#PCDATA)>
+<!ELEMENT DirectionAheadString (#PCDATA)>
+<!ELEMENT DirectionRightString (#PCDATA)>
+<!ELEMENT DirectionBackString (#PCDATA)>

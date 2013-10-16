@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE LabyrinthInstructionTXT SYSTEM "InstructionTXT.dtd">
+<LabyrinthInstructionTXT>
+	<ConditionStartString> ( </ConditionStartString>
+	<ConditionEndString> ) </ConditionEndString>
+	<ActionStartString> ( </ActionStartString>
+	<ActionEndString> ) </ActionEndString>
+	<ConditionActionSeparatorString> -> </ConditionActionSeparatorString>
+	<SeparatorString> , </SeparatorString>
+	<CommentOutLineString> // </CommentOutLineString>
+	<CommentOutStartString> /* </CommentOutStartString>
+	<CommentOutEndString> */ </CommentOutEndString>
+	<DeactivateInstructionString> # </DeactivateInstructionString>
+	<WallString> f </WallString>
+	<WayString> g </WayString>
+	<DirectionLeftString> nach links </DirectionLeftString>
+	<DirectionAheadString> nach vorn </DirectionAheadString>
+	<DirectionRightString> nach rechts </DirectionRightString>
+	<DirectionBackString> umdrehen </DirectionBackString>
+</LabyrinthInstructionTXT>

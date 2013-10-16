@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!ELEMENT LabyrinthGame (DefaultLevelStyle?, Levels)>
+<!ELEMENT DefaultLevelStyle (WallPicture, WayPicture, RobotPicture, DiamondPicture, StartPicture)>
+<!ELEMENT Levels (Level*)>
+<!ELEMENT Level (Name, File, InstructionList?)>
+<!ELEMENT WayPicture (#PCDATA)>
+<!ELEMENT WallPicture (#PCDATA)>
+<!ELEMENT RobotPicture (#PCDATA)>
+<!ELEMENT DiamondPicture (#PCDATA)>
+<!ELEMENT StartPicture (#PCDATA)>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT File (#PCDATA)>
+<!ELEMENT InstructionList (#PCDATA)>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE LabyrinthLevel SYSTEM "LabyrinthLevel.dtd">
+<LabyrinthLevel>
+  <Name> Labyrinth mit Loops </Name>
+  <Dimension>
+    <width> 20 </width>
+    <height>20 </height>
+  </Dimension>
+  <Labyrinth>
+    <StartSymbol> S </StartSymbol>
+    <WallSymbol> W </WallSymbol>
+    <DiamondSymbol> D </DiamondSymbol>
+    <WaySymbol> . </WaySymbol>
+    		<ZeroSymbol> 0 </ZeroSymbol>
+		<OneSymbol> 1 </OneSymbol>
+		<TwoSymbol> 2 </TwoSymbol>
+		<ThreeSymbol> 3 </ThreeSymbol>
+    <StartingDirection> UP </StartingDirection>
+    <LabyrinthField>
+WWWWWWWWWWWWWWWWWWWW
+W.................WW
+W.WWWWWWWWWWWWWWW.WW
+W.WWWWWWWWWWWWWWW.WW
+W.WWWWWWWWWWWWWWW.WW
+W...WWWWWWWWWWWWW.WW
+WWW.WWWWWWWWWWWWW.WW
+WWW......D........WW
+WWW.WWWWWWWWWWWWW.WW
+WWW.WWWWWWWWWWWWW.WW
+WWW.WWWWWWWWWWWWW.WW
+WWW.WWWWWWWWWWWWW.WW
+WWW.WWWWWWWWWWWWW.WW
+W.................WW
+W.WWWWWWWWWWWWWWWWWW
+W.WWWWWWWWWWWWWWWWWW
+W.WWWWWWWWWWWWWWWWWW
+W.WWWWWWWWWWWWWWWWWW
+W.WWWWWWWWWWWWWWWWWW
+WSWWWWWWWWWWWWWWWWWW
+    </LabyrinthField>
+  </Labyrinth>
+    <Create>
+    <Diamonds> 20 </Diamonds>
+    <WayCells> 150 </WayCells>
+    <MinWayLenght> 3 </MinWayLenght>
+    <MaxWayLenght> 5 </MaxWayLenght>
+    <BuildAngles>1</BuildAngles>
+    <BuildTrees>1</BuildTrees>
+    <BuildLoops>3</BuildLoops>
+    <BuildPlaces>0</BuildPlaces>
+  </Create>
+</LabyrinthLevel>
