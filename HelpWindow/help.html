@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Über - Neptun Roboter Simulation</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1><a href="index.html">Neptun Roboter Simulation</a></h1>
+    <nav>
+      <p>
+        <a href="task.html">Aufgabenstellung</a> <br />
+        <a href="help.html">Tutorial</a> <br />
+        <a href="../">Jetzt spielen</a>
+      </p>
+      <p>
+        <a href="about.html">Über: „Neptun Roboter Simulation“</a> <br />
+        Kontakt: <a href="http://einspiel.net/">Wolfgang Slany</a> <br />
+      </p>
+    </nav>
+
+    <article>
+      <h2>Wie spielt man das eigentlich?</h2>
+      
+      <p>
+        Du musst den Roboter Marvin-10 so programmieren, dass er durch
+        das Labyrinth fährt, dort alle Diamanten aufsammelt und
+        anschließend damit herauskommt. Wenn du das Spiel startest,
+        siehst du erst mal eine ganze Menge Elemente. Beachte das
+        Labyrinth und den Roboter, der ganz unten am Eingang steht.
+      </p>
+
+      <figure>
+        <img alt="Spielstart" src="./snapshot2.png" width="800" height="485" />
+      </figure>
+
+      <p>
+        Marvin-10 kann am Anfang leider überhaupt nichts. Aber du kannst
+        ihn mit Hilfe der Sensorregeln programmieren, die du links im Bild
+        siehst:
+      </p>
+
+      <figure>
+        <img alt="Sensor_blank" src="sensor_blank.png" width="251" height="80" />
+      </figure>
+
+      <p>
+        <strong>Und wie funktionieren die Sensorregeln?</strong> <br />
+        
+        Das ist ganz einfach:
+        Links in der Sensorregel beschreibst du einen Zustand und rechts gibst
+        du dem Roboter Befehle, die er ausführen soll, wenn er in diesem
+        Zustand ist. Verändere jetzt die erste Sensorregel zum Beispiel so:
+      </p>
+
+      <figure>
+        <img alt="Sensor_filled" src="./sensor.png" width="252" height="82" />
+      </figure>
+
+      <p>
+        Das machst du, indem du mit der linken Maustaste auf die Felder
+        klickst, die du verändern willst. Aber das hast du sicher schon
+        gewußt. Supergut! Die Sensorregel, die du oben siehst, sagt dem
+        Roboter:
+      </p>
+      <blockquote>
+        <p>"WENN du links und rechts eine Wand siehst, DANN gehe geradeaus".</p>
+      </blockquote>
+
+      <p>
+        Drück doch einmal auf den Startknopf, das ist dieser hier:
+      </p>
+
+      <figure>
+        <img alt="Start-Button" src="startknopf.png" width="124" height="26" />
+      </figure>
+
+      <p>
+        Der Roboter fährt nun los. Allerdings nicht weit, denn Marvin-10
+        kennt erst diese eine Regel und er fährt immer nur so weit wie er
+        sich auskennt. Du musst also Marvin-10 noch klüger machen.
+        Verändere dazu die zweite, dritte und vierte Sensorregel, um ihm
+        zum Beispiel zu sagen:
+      </p>
+      <blockquote>
+        <p>"WENN nur links ein Weg ist, DANN drehe nach links".</p>
+      </blockquote>
+
+      <p>
+        Ich bin sicher, du kannst das alleine programmieren. Vier
+        Sensorregeln sollten reichen, damit der Roboter durch das einfache
+        Labyrinth fährt und am Ende mit allen Diamanten herauskommt.
+      </p>
+
+      <p>
+        Wenn du gut programmiert hast, holt Marvin-10 alle Diamanten aus dem
+        Labyrinth heraus und in der Statusleiste unter dem Labyrinth bekommst du diese
+        Meldung zu sehen:
+      </p>
+      
+      <figure>
+        <img alt="geschafft" src="geschafft.png" width="403" height="56" />
+      </figure>
+
+      <p>
+        Wenn du das geschafft hast, dann weisst du bereits wie die
+        Programmierung funktioniert. Allerdings bleibt es nicht so
+        einfach!
+      </p> <p>
+        Klick doch einmal auf <b>Schwierigkeitsgrad</b> ganz oben in der grauen Menüleiste.
+        So kannst du ein komplizierteres Labyrinth auswählen,
+        und wenn du wieder Start drückst, dann werden deine vier Sensorregeln
+        nicht mehr ausreichen und du musst dir weitere ausdenken. Weitere
+        Regeln bekommst du übrigens mit diesem Knopf:
+      </p>
+      
+      <figure>
+        <img alt="Button" src="neu.png" width="134" height="21" />
+      </figure>
+      
+      <p>
+        Du hast dich sicher schon gefragt, wozu die anderen Schaltflächen
+        der Sensorregeln da sind. Erinnere dich daran, daß jede Regel,
+        die du machst, aus zwei Teilen besteht: <br />
+        Einem WENN-Teil auf der linken und einem DANN-Teil auf der rechten Seite.
+      </p><p>
+        Du kannst bestimmen:
+      </p>
+      <blockquote>
+        <p>"WENN links und rechts Wände sind UND der Zustand des Roboters blau ist,
+          DANN fahre geradeaus UND wechsle den Zustand auf rot."</p>
+      </blockquote>
+      
+      <p>Diese Regel sieht so aus:</p>
+      <figure>
+        <img alt="Sensor, Farbe" src="./sensor_farbe.png" width="252" height="79" />
+      </figure>
+
+      <p>
+        Außerdem kann der Roboter Zahlen auf den Boden schreiben und
+        lesen. So kann er markieren, wo er schon war. Praktisch, hm? Die
+        folgende Regel bedeutet:
+      </p>
+      <blockquote>
+        <p>"WENN links und rechts Wände sind UND am Boden eine Null
+        steht, DANN gehe geradeaus und schreibe eine Eins auf den Boden."</p>
+      </blockquote>
+
+      <figure>
+        <img alt="Sensor, Zahl" src="./sensor_zahl.png" width="250" height="80" />
+      </figure>
+
+      <p>
+        So, jetzt weisst du alles was du brauchst, um Marvin-10 zu
+        programmieren. <em>Kannst du alle Diamanten kriegen?</em>
+      </p>
+
+      <p>
+        Ach ja, wenn dir der Roboter zu langsam ist, kannst du mit dem
+        Schieber die Geschwindigkeit regeln. Du wirst sehen, dass der
+        ganz schön herumflitzen kann!
+      </p>
+      <p>
+        Wenn du die Geschwindigkeit hingegen auf 0 setzt, dann darfst
+        du bei jeder Bewegung auf den <b>Schritt</b>-Knopf klicken.
+      </p>
+      <p>
+        Dumm? Nein, ganz und gar nicht, denn so kannst du genau sehen,
+        welche Regel der Roboter verwendet hat und diese sogar ändern!
+      </p>
+
+      <h2>Der Expertenmodus</h2>
+      <h3>Regelsatz editieren</h3>
+      <p>
+        Im Expertenmodus <b>Regelsatz editieren</b> kannst du den Roboter
+        auch neue Regeln beibringen!
+        Du brauchst nicht auf die Knöpfe klicken, sondern du schreibst sie einfach hin.
+        Dafür musst du wirklich kein Experte sein!
+      </p>
+      <blockquote>
+        <p>"WENN links und rechts Wände sind UND der Zustand des
+        Roboters blau ist, DANN fahre geradeaus UND wechsle den Zustand
+        auf rot."</p>
+      </blockquote>
+
+      <p>
+        Da der Satz aber ziemlich lange und für den Roboter schwer zu
+        verstehen wäre, gibt es eine Abkürzung:
+      </p>
+      
+      <div class="instr">
+        (fgf,blau,)->(,nach vorn,rot)
+      </div>
+      
+      <p>das heißt soviel wie:</p>
+      
+      <blockquote>
+        <p>WENN ('links Wand''vorne Gang''rechts Wand', Zustand blau,
+          keine Bodenmarkierung ) DANN (keine Bodenmarkierung, gehe
+          nach vorne, neuer Zustand rot)</p>
+      </blockquote>
+
+      <p>
+        Hier findest du alle Wörter, die der Roboter schon versteht:
+      </p>
+
+      <table border="1">
+        <tr><th>Gelände</th><th>Zustände</th><th>Bodenmarkierungen</th><th>Bewegungsrichtungen</th></tr>
+        <tr><td>f → Wand</td><td> grün</td><td>0</td> <td>nach vorn</td></tr>
+        <tr><td>g → Gang</td><td> blau</td><td>1</td><td>nach rechts</td></tr>
+        <tr><td> </td> <td>rot</td><td>2</td><td>nach links</td></tr>
+        <tr><td> </td> <td>gelb</td><td>3</td><td>umdrehen</td></tr>
+      </table>
+
+      <p>
+        <b>Was, das sind nicht genug Bodenmarkierungen und Zustände?</b> <br/>
+        Erfinde einfach neue! Du kannst dafür bis zu 30 Zeichen verwenden.
+      </p>
+
+      <p>
+        Einen weiteren Vorteil bietet dir der Expertenmode: Wenn du möchtest,
+        dass der Roboter eine deiner Regeln nicht benützt, dann macht er
+        das auch nicht!. Du brauchst nur <span class="instr">#</span> vor die Regel setzen.
+      </p>
+
+      <p>Also so:</p>
+      <div class="instr">
+        #(fgf,blau,)->(,nach vorn,rot)
+      </div>
+
+      <p>Du kannst auch Kommentare schreiben</p>
+      <div class="instr">
+        // Das hier geschriebene brauchst du dir nicht zu merken
+      </div>
+
+      <p>Mehrere Zeilen werden so weglassen:</p>
+      <div class="instr">
+        /* Die nachfolgenden Zeilen bitte ignorieren,<br>
+        denn sie sind streng geheim und gehen dich <br>
+        wirklich überhaupt nichts an! */
+      </div>
+
+      <p>
+        Auf eines musst du noch aufpassen:
+        Für den Roboter sind 'A' und 'a' NICHT gleich!!!
+      </p>
+      <p>
+        <span class="instr">(FGG,,)->(,nach vorn,)</span> wird er daher
+        nicht verstehen!
+      </p>
+
+      <h2>Labyrinth editieren</h2>
+      <p>
+        Für das Erstellen eines Labyrinths werden Informationen über
+        dessen Größe und Aussehen benötigt.
+      </p>
+      <p>
+        Da das eine ganze Menge an Daten sind, reichen ein paar einfache
+        Zeichen, wie bei „Regelsatz editieren“, nicht mehr aus.
+        Mit <abbr title="Extensible Markup Language">XML</abbr>
+        kannst du Regeln erstellen, die von Computerprogrammen leicht
+        verstanden werden können.
+      </p>
+
+      <p>
+        Zuerst muss die Neptun Simulation einmal wissen, dass sie
+        jetzt XML zu lesen bekommt und wie das Dokument aussehen soll.
+      </p>
+      
+      <div class="xml">&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;!DOCTYPE LabyrinthLevel SYSTEM "LabyrinthLevel.dtd"&gt;</div>
+
+      <p>
+        Jetzt sagen wir:
+        „Wir wollen ein neues Level generieren, nimm alles was zwischen
+        &lt;LabyrinthLevel&gt; und &lt;/LabyrinthLevel&gt; steht.“
+      </p>
+      <p>Achtung! Zwischen diesen beiden „Blöcke“ definieren wir alles andere!!</p>
+
+      <p>
+        Das fertige Dokument sollte dann in etwa so aussehen:
+      </p>
+      <div class="xml">&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;!DOCTYPE LabyrinthLevel SYSTEM "LabyrinthLevel.dtd"&gt;
+&lt;LabyrinthLevel&gt;
+   …
+   HIER stehen alle Infos zur Gestaltung des Labyrinths!
+   …
+&lt;/LabyrinthLevel&gt;</div>
+
+       <h4>Name und Größe</h4>
+       <p>Jedes Labyrinth hat einen Namen.</p>
+       <div class="xml">&lt;Name&gt; Mein erstes Labyrinth &lt;/Name&gt;</div>
+
+       <p>Die Größe deines Labyrinths gibts du so an:</p>
+       <div class="xml">&lt;Dimension&gt;
+&lt;width&gt; 20 &lt;/width&gt;
+&lt;height&gt; 20 &lt;/height&gt;
+&lt;/Dimension&gt;</div>
+
+        <h4>Aussehen</h4>
+        <p>Um das Aussehen festzulegen gibt es 3 Möglichkeiten:</p>
+        <dl>
+          <dt>Fixes Labyrinth</dt>
+            <dd>Du zeichnest das Labyrinth genau so wie es dargestellt werden soll</dd>
+          <dt>Zufalls-Labyrinth</dt>
+            <dd>Du bestimmst nur welche Eigenschaften (Verzweigungen, Plätze, Schleifen...)
+            das Labyrinth haben soll und überlässt das genaue Aussehen der Simulation</dd>
+          <dt>Kombiniertes-Labyrinth</dt>
+            <dd>Fixes Labyrinth, in welches zufällig weitere Gänge einzeichnet werden</dd>
+        </dl>
+
+        <p>Fixes Labyrinth:</p>
+        <div class="xml">&lt;Labyrinth&gt;</div>
+        
+        <p>
+          Welches Symbol (1 Zeichen) in deinem gezeichneten Labyrinth steht
+          für Startpunkt, Wand, Gang und Diamant sowie für die Bodenmarkierungen
+          0, 1, 2 und 3
+        </p>
+        <div class="xml">&lt;StartSymbol&gt; S &lt;/StartSymbol&gt;
+&lt;WallSymbol&gt; W &lt;/WallSymbol&gt;
+&lt;WaySymbol&gt; . &lt;/WaySymbol&gt;
+&lt;DiamondSymbol&gt; D &lt;/DiamondSymbol&gt;
+&lt;ZeroSymbol&gt; 0 &lt;/ZeroSymbol&gt;
+&lt;OneSymbol&gt; 1 &lt;/OneSymbol&gt;
+&lt;TwoSymbol&gt; 2 &lt;/TwoSymbol&gt;
+&lt;ThreeSymbol&gt; 3 &lt;/ThreeSymbol&gt;</div>
+
+        <p>Weitere Symbole können so definiert werden:</p>
+        <div class="xml">&lt;SymbolList&gt;
+  &lt;Symbol&gt;
+    &lt;CharSymbol&gt; a &lt;/CharSymbol&gt;
+    &lt;StringSymbol&gt; Test String &lt;/StringSymbol&gt;
+  &lt;/Symbol&gt;
+  &lt;Symbol&gt;
+    &lt;CharSymbol&gt; b &lt;/CharSymbol&gt;
+    &lt;StringSymbol&gt; 2. Test String &lt;/StringSymbol&gt;
+  &lt;/Symbol&gt;
+&lt;/SymbolList&gt;</div>
+
+        <p>
+          Mögliche Werte für die Startrichtung des Roboters:
+          „up“, „down“, „left“, „right“
+        </p>
+        <div class="xml">&lt;StartingDirection&gt; UP &lt;/StartingDirection&gt;</div>
+        
+        <p>
+          Zeichnen des Labyrinths: <br/>
+          Die Anzahl der Zeichen muss mit der angegebenen Größe übereinstimmen. <br />
+          (Verwende die oben festgelegten Zeichen!)
+        </p>
+        
+        <div class="xml">  &lt;LabyrinthField&gt;
+
+    WWWWWWWWWWWWWWWWWWWW
+    W.....b...........WW
+    W.WWWWWWWWWWWWWWW.WW
+    W.WWWWWWWWWWWWWWW.WW
+    W.WWWWWWWWWWWWWWW.WW
+    W...WWWWWWWWWWWWW.WW
+    WWW.WWWWWWWWWWWWW.WW
+    WWW.a....D........WW
+    WWW.WWWWWWWWWWWWW.WW
+    WWW.WWWWWWWWWWWWW.WW
+    WWW.WWWWWWWWWWWWW.WW
+    WWW.WWWWWWWWWWWWW.WW
+    WWW.WWWWWWWWWWWWW.WW
+    W.................WW
+    W.WWWWWWWWWWWWWWWWWW
+    W.WWWWWWWWWWWWWWWWWW
+    W.WWWWWWWWWWWWWWWWWW
+    W.WWWWWWWWWWWWWWWWWW
+    W.WWWWWWWWWWWWWWWWWW
+    WSWWWWWWWWWWWWWWWWWW
+ &lt;/LabyrinthField&gt;
+&lt;/Labyrinth&gt;</div>
+
+      <p>
+        <b>Zufalls Labyrinth:</b>
+      </p>
+      <div class="xml">&lt;Create&gt;</div>
+
+      <p>Anzahl der Diamanten</p>
+      <div class="xml">&lt;Diamonds&gt; 20 &lt;/Diamonds&gt;</div>
+    
+      <p>Maximale Anzahl an Wegzellen</p>
+      <div class="xml">&lt;WayCells&gt; 150 &lt;/WayCells&gt;</div>
+    
+      <p>Minimale Länge eines Weges</p>
+      <div class="xml">&lt;MinWayLenght&gt; 3 &lt;/MinWayLenght&gt;</div>
+    
+      <p>Maximale Länge eines Weges (Es wird aber nicht verhindert, dass
+      der Weg in die gleiche Richtung weitergebaut wird!)</p>
+      <div class="xml">&lt;MaxWayLenght&gt; 5 &lt;/MaxWayLenght&gt;</div>
+
+      <p>Kurven bauen: 1 steht für ja, 0 für nein</p>
+      <div class="xml">&lt;BuildAngles&gt; 1 &lt;/BuildAngles&gt;</div>
+    
+      <p>Verzweigungen bauen: 1 steht für ja, 0 für nein</p>
+      <div class="xml">&lt;BuildTrees&gt; 1 &lt;/BuildTrees&gt;</div>
+    
+      <p>Schleifen bauen: 0 für nein, Zahlenwert für die maximale Anzahl an Schleifen</p>
+      <div class="xml">&lt;BuildLoops&gt; 3 &lt;/BuildLoops&gt;</div>
+    
+      <p>Plätze bauen: 1 steht für ja, 0 für nein</p>
+      <div class="xml">&lt;BuildPlaces&gt; 0 &lt;/BuildPlaces&gt;
+&lt;/Create&gt;</div>
+
+      <h4>Fixes Labyrinth mit Zufallsanteil:</h4>
+      <p>Verwende einfach</p>
+      <div class="xml">&lt;Labyrinth&gt;
+&lt;/Labyrinth&gt;</div>
+
+      <p>und</p>
+    
+      <div class="xml">&lt;Create&gt;
+&lt;/Create&gt;</div>
+    </article>
+  </body>
+</html>
