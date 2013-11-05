@@ -1,5 +1,8 @@
 #!/bin/bash
 
+JAVAC="/usr/lib/jvm/java-7-openjdk-amd64/bin/javac"
+JAVADOC="/usr/lib/jvm/java-7-openjdk-amd64/bin/javadoc"
+
 function usage()
 {
 	echo "-c for clear *.class, *.java~"
@@ -15,23 +18,21 @@ function usage()
 
 function compile()
 {
-	if [ ! -x /usr/bin/javac ];then
-		echo "/usr/bin/javac nicht gefunden (java)"
+	if [ ! -x $JAVAC ];then
+		echo "$JAVAC nicht gefunden (java)"
 		exit 1
 	fi
 	version=`cat add_to_version.txt`
-	/usr/bin/javac $1 controller/*.java gui/*.java
-	echo "<? echo \"`svnversion -n .`$version\"; ?>" > versionsnumber.php
-	echo "Version: `svnversion .`$version"
+	$JAVAC $1 controller/*.java gui/*.java
 }
 
 function doc()
 {
-	if [ ! -x /usr/bin/javadoc ];then
-		echo "/usr/bin/javadoc nicht gefunden (java)"
+	if [ ! -x JAVADOC ];then
+		echo "$JAVADOC nicht gefunden (java)"
 		exit 1
 	fi
-	/usr/bin/javadoc controller/*.java gui/*.java -d doc
+	$JAVADOC controller/*.java gui/*.java -d doc
 }
 
 function clean()
