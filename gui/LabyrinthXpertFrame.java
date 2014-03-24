@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 import java.net.URL;
 import java.net.MalformedURLException;
 
-import java.io.StringBufferInputStream;
 import java.io.ByteArrayInputStream;
 import org.xml.sax.InputSource;
 

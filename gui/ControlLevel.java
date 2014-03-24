@@ -139,7 +139,19 @@ public class ControlLevel
 	      	if (th_!=null)
 			{
 				run_lab_.finish();
-				th_.stop();
+				th_.interrupt();
+                while(!th_.isInterrupted()){
+                    try{
+                        th_.sleep(10);
+                    }
+                    catch(InterruptedException e){
+                        th_.interrupt();
+                        break;
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
 			}
 			run_lab_= new RunLab(controllevel_);
 			th_ = new Thread(run_lab_,"RUN LAB");

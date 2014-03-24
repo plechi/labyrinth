@@ -19,6 +19,8 @@ You should have received a copy of the GNU General Public License
 along with Neptune-Robot-Simulation; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  US
 */
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -74,7 +76,7 @@ public class SqlCommunicator {
 				out.println("user_id="+user_id+"&level="+Integer.toString(level)+"&lab_id="+Integer.toString(lab_id)+"&public="+Integer.toString(pub)+"&text="+URLEncoder.encode(text, "UTF-8"));
 				out.close();
 			    // Get response data.
-				DataInputStream input = new DataInputStream (urlConn.getInputStream ());
+				BufferedReader input = new BufferedReader (new InputStreamReader(urlConn.getInputStream()));
 			    String str;
 			    while (null != ((str = input.readLine())))
 				{
@@ -163,7 +165,7 @@ public class SqlCommunicator {
 				out.println("userid="+user_id+"&level="+level+"&text="+URLEncoder.encode(temp_buffer_, "UTF-8"));
 				out.close();
 			    // Get response data.
-				DataInputStream input = new DataInputStream (urlConn.getInputStream ());
+				BufferedReader input = new BufferedReader (new InputStreamReader(urlConn.getInputStream ()));
 			    String str;
 			    while (null != ((str = input.readLine())))
 				{

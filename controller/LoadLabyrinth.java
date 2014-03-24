@@ -33,7 +33,6 @@ import java.util.HashMap;
 import org.xml.sax.InputSource;
 import org.xml.sax.EntityResolver;
 import javax.swing.JOptionPane;
-import java.io.StringBufferInputStream;
 import java.io.ByteArrayInputStream;
 //----------------------------------------------------------------------
 /**
@@ -167,7 +166,19 @@ public class LoadLabyrinth
   {
 		mark_array_ = mark_array;
 		document_base_ = document_base;
-		input_ = new InputSource(new StringBufferInputStream(input));
+        StringBuilder propertiesEncoded = new StringBuilder();
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if (c <= 0x7e) propertiesEncoded.append((char) c);
+            else propertiesEncoded.append(String.format("\\u%04x", (int) c));
+        }
+        try {
+            input_ = new InputSource(new ByteArrayInputStream(propertiesEncoded.toString().getBytes("ISO-8859-1")));
+        }
+        catch(Exception e) {
+
+        }
+
 		parse(INPUTSOURCE);
 	}
 
