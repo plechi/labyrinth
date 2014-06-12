@@ -25,7 +25,7 @@ import java.util.*;
  * turing machine. 
  */
 
-public class InstructionList extends ArrayList
+public class InstructionList extends ArrayList<Instruction>
 {
 //-----------------------------------------------------------------------------
 /**
