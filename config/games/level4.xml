@@ -12,9 +12,9 @@
     <DiamondSymbol> D </DiamondSymbol>
     <WaySymbol> . </WaySymbol>
     <ZeroSymbol> 0 </ZeroSymbol>
-	<OneSymbol> 1 </OneSymbol>
-	<TwoSymbol> 2 </TwoSymbol>
-	<ThreeSymbol> 3 </ThreeSymbol>
+    <OneSymbol> 1 </OneSymbol>
+    <TwoSymbol> 2 </TwoSymbol>
+    <ThreeSymbol> 3 </ThreeSymbol>
     <StartingDirection> UP </StartingDirection>
     <LabyrinthField>
 WWWWWWWWWWWWWWWWWWWW

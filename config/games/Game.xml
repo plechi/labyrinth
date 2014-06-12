@@ -3,23 +3,23 @@
 <LabyrinthGame>
   <Levels>
     <Level>
-			<Name> leichtes Labyrinth </Name>
+      <Name> leichtes Labyrinth </Name>
       <File> config/games/level1.xml </File>
     </Level>
     <Level>
-			<Name> schweres Labyrinth </Name>
+      <Name> schweres Labyrinth </Name>
       <File> config/games/level2.xml </File>
     </Level>
     <Level>
-			<Name> Labyrinth mit Loops </Name>
+      <Name> Labyrinth mit Loops </Name>
       <File> config/games/loops.xml </File>
     </Level>
     <Level>
-			<Name> Labyrinth mit Plätzen </Name>
+      <Name> Labyrinth mit Plätzen </Name>
       <File> config/games/level5.xml </File>
     </Level>
     <Level>
-			<Name> freies Feld </Name>
+      <Name> freies Feld </Name>
       <File> config/games/level4.xml </File>
     </Level>
   </Levels>

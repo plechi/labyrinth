@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE LabyrinthLevel SYSTEM "LabyrinthLevel.dtd">
 <LabyrinthLevel>
-	<Name> Labyrinth 7 </Name>
-	<Dimension>
-		<width> 20 </width>
-		<height> 20 </height>
-	</Dimension>
-	<Labyrinth>
-		<StartSymbol> S </StartSymbol>
-		<WallSymbol> W </WallSymbol>
-		<DiamondSymbol> D </DiamondSymbol>
-		<WaySymbol> . </WaySymbol>
-		<ZeroSymbol> 0 </ZeroSymbol>
-		<OneSymbol> 1 </OneSymbol>
-		<TwoSymbol> 2 </TwoSymbol>
-		<ThreeSymbol> 3 </ThreeSymbol>
-		<StartingDirection> UP </StartingDirection>
-		<LabyrinthField>
-			WWWWWWWWWWWWWWWWWWWW
-			WWWWWWWWWWWWWWWWWWWW
-			WWWWWWWWWWWWWWWWWWWW
-			WWWWWWWWWWWWWWWWWWWW
-			WWWWWWWWWWWWWWWWWWWW
-			WWWWWWWWWWWWWWWWWWWW
-			WWWWWWWWWWWWWWWWWWWW
-			WWWWWWWWWWWWWWWWWWWW
-			WWWWWWWWWWWWWWWWWWWW
-			WWWWWWWWWWWWWWWWWWWW
-			WDW.D....D.........W
-			W.W.WW.WWWWWWWW.WWDW
-			W.W.WW.WWW..D...WW.W
-			W.W.WW.WWW.WWWWWWW.W
-			W.WDWW.WWW.WWWWWWW.W
-			W..D....D........D.W
-			W.WWWWWWWWWW.WWWWWWW
-			W.WWWWWWWWWW.WWWWWWW
-			W.WWWWWWWWWW.WWWWWWW
-			WSWWWWWWWWWWWWWWWWWW
-		</LabyrinthField>
-	</Labyrinth>
+  <Name> Labyrinth 7 </Name>
+  <Dimension>
+    <width> 20 </width>
+    <height> 20 </height>
+  </Dimension>
+  <Labyrinth>
+    <StartSymbol> S </StartSymbol>
+    <WallSymbol> W </WallSymbol>
+    <DiamondSymbol> D </DiamondSymbol>
+    <WaySymbol> . </WaySymbol>
+    <ZeroSymbol> 0 </ZeroSymbol>
+    <OneSymbol> 1 </OneSymbol>
+    <TwoSymbol> 2 </TwoSymbol>
+    <ThreeSymbol> 3 </ThreeSymbol>
+    <StartingDirection> UP </StartingDirection>
+    <LabyrinthField>
+      WWWWWWWWWWWWWWWWWWWW
+      WWWWWWWWWWWWWWWWWWWW
+      WWWWWWWWWWWWWWWWWWWW
+      WWWWWWWWWWWWWWWWWWWW
+      WWWWWWWWWWWWWWWWWWWW
+      WWWWWWWWWWWWWWWWWWWW
+      WWWWWWWWWWWWWWWWWWWW
+      WWWWWWWWWWWWWWWWWWWW
+      WWWWWWWWWWWWWWWWWWWW
+      WWWWWWWWWWWWWWWWWWWW
+      WDW.D....D.........W
+      W.W.WW.WWWWWWWW.WWDW
+      W.W.WW.WWW..D...WW.W
+      W.W.WW.WWW.WWWWWWW.W
+      W.WDWW.WWW.WWWWWWW.W
+      W..D....D........D.W
+      W.WWWWWWWWWW.WWWWWWW
+      W.WWWWWWWWWW.WWWWWWW
+      W.WWWWWWWWWW.WWWWWWW
+      WSWWWWWWWWWWWWWWWWWW
+    </LabyrinthField>
+  </Labyrinth>
 </LabyrinthLevel>

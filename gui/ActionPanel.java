@@ -1,4 +1,5 @@
 package gui;
+
 import java.util.HashMap;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -7,46 +8,46 @@ import javax.swing.JLabel;
 import controller.Action;
 import controller.IntStringMap;
 
-public class ActionPanel extends JPanel implements UpdateObject
-{
+public class ActionPanel extends JPanel implements UpdateObject {
 
-	private RobotBottomSensorPanel bottom_sensor_;
-	private RobotDirectionPanel direction_panel_;
-	private RobotStatePanel state_panel_;
-	private HashMap brick_images_;
-	private RulePanel parent_panel_;
-	private int id_;
-	
-	public void updateParent()
-	{
-		parent_panel_.	actionUpdated();
-	}
-	
-	public ActionPanel(HashMap brick_images, IntStringMap mark_array, IntStringMap state_array, RulePanel parent_panel, int id) 
-    {	    
-		super();
-        brick_images_ = brick_images;
-        parent_panel_=  parent_panel;
-        id_=id;
-        bottom_sensor_ = new RobotBottomSensorPanel(brick_images_,mark_array, this, "Regel "+id_+" Aktion: Boden Sensor");
-        direction_panel_ = new RobotDirectionPanel(brick_images_, this, "Regel "+id_+" Aktion: Bewegungsrichtung" );
-        state_panel_ = new RobotStatePanel(brick_images_,state_array, false, this, "Regel "+id_+" Aktion: Roboterstatus");
-        initComponents();   
-	}
-	
+    private RobotBottomSensorPanel bottom_sensor_;
+    private RobotDirectionPanel direction_panel_;
+    private RobotStatePanel state_panel_;
+    private HashMap brick_images_;
+    private RulePanel parent_panel_;
+    private int id_;
 
-	public ActionPanel(HashMap brick_images, IntStringMap mark_array, IntStringMap state_array, Action action, RulePanel parent_panel, int id) 
-    	{	    
-		super();
+    public void updateParent() {
+        parent_panel_.actionUpdated();
+    }
+
+    public ActionPanel(HashMap brick_images, IntStringMap mark_array,
+            IntStringMap state_array, RulePanel parent_panel, int id) {
+        super();
         brick_images_ = brick_images;
-        parent_panel_=  parent_panel;
-        id_=id;
-               
+        parent_panel_ = parent_panel;
+        id_ = id;
+        bottom_sensor_ = new RobotBottomSensorPanel(brick_images_, mark_array,
+                this, "Regel " + id_ + " Aktion: Boden Sensor");
+        direction_panel_ = new RobotDirectionPanel(brick_images_, this,
+                "Regel " + id_ + " Aktion: Bewegungsrichtung");
+        state_panel_ = new RobotStatePanel(brick_images_, state_array, false,
+                this, "Regel " + id_ + " Aktion: Roboterstatus");
+        initComponents();
+    }
+
+    public ActionPanel(HashMap brick_images, IntStringMap mark_array,
+            IntStringMap state_array, Action action, RulePanel parent_panel,
+            int id) {
+        super();
+        brick_images_ = brick_images;
+        parent_panel_ = parent_panel;
+        id_ = id;
+
         int direction = 0;
-        switch (action.getMovingDirection()) 
-        {
+        switch (action.getMovingDirection()) {
         case Action.MOVE_AHEAD:
-        	direction = RobotDirectionPanel.UP;
+            direction = RobotDirectionPanel.UP;
             break;
         case Action.MOVE_RIGHT:
             direction = RobotDirectionPanel.RIGHT;
@@ -58,17 +59,21 @@ public class ActionPanel extends JPanel implements UpdateObject
             direction = RobotDirectionPanel.DOWN;
         }
 
-        bottom_sensor_ = new RobotBottomSensorPanel(brick_images_, action.getCellMark()+1, mark_array, this, "Regel "+id_+" Aktion: Boden Sensor");
-        
-        direction_panel_ = new RobotDirectionPanel(brick_images_, direction, this, "Regel "+id_+" Aktion: Bewegungsrichtung");
-        
-        state_panel_ = new RobotStatePanel(brick_images_,action.GetState()+1, state_array, false, this, "Regel "+id_+" Aktion: Bewegungsrichtung");
-        
-        initComponents();   
-	}
-	
-	private void initComponents() 
-	{
+        bottom_sensor_ = new RobotBottomSensorPanel(brick_images_,
+                action.getCellMark() + 1, mark_array, this, "Regel " + id_
+                        + " Aktion: Boden Sensor");
+
+        direction_panel_ = new RobotDirectionPanel(brick_images_, direction,
+                this, "Regel " + id_ + " Aktion: Bewegungsrichtung");
+
+        state_panel_ = new RobotStatePanel(brick_images_,
+                action.GetState() + 1, state_array, false, this, "Regel " + id_
+                        + " Aktion: Bewegungsrichtung");
+
+        initComponents();
+    }
+
+    private void initComponents() {
         JLabel top_label = new JLabel();
         JLabel info_label = new JLabel();
         this.setLayout(null);
@@ -89,14 +94,12 @@ public class ActionPanel extends JPanel implements UpdateObject
         setBackGround(Color.DARK_GRAY);
         this.setBorder(new javax.swing.border.SoftBevelBorder(
                 javax.swing.border.BevelBorder.RAISED));
-        repaint(); 
+        repaint();
     }
-    
-    public Action getAction() 
-    {
+
+    public Action getAction() {
         int direction = 0;
-        switch (direction_panel_.getInternalState()) 
-        {
+        switch (direction_panel_.getInternalState()) {
         case RobotDirectionPanel.UP:
             direction = Action.MOVE_AHEAD;
             break;
@@ -110,25 +113,22 @@ public class ActionPanel extends JPanel implements UpdateObject
             direction = Action.MOVE_BACK;
         }
 
-        Action ret_action = new Action(state_panel_.getInternalState()-1,
-                bottom_sensor_.getInternalState()-1, direction);
+        Action ret_action = new Action(state_panel_.getInternalState() - 1,
+                bottom_sensor_.getInternalState() - 1, direction);
         return ret_action;
     }
-    
-    public void setBackGround(Color action_color)
-    {
-        	this.setBackground(action_color);
-	}
-    
-	public void updateAction(Action action)
-	{
-		bottom_sensor_.setInternalState(action.getCellMark()+1);
-		
-		int direction = 0;
-        switch (action.getMovingDirection()) 
-        {
+
+    public void setBackGround(Color action_color) {
+        this.setBackground(action_color);
+    }
+
+    public void updateAction(Action action) {
+        bottom_sensor_.setInternalState(action.getCellMark() + 1);
+
+        int direction = 0;
+        switch (action.getMovingDirection()) {
         case Action.MOVE_AHEAD:
-        	direction = RobotDirectionPanel.UP;
+            direction = RobotDirectionPanel.UP;
             break;
         case Action.MOVE_RIGHT:
             direction = RobotDirectionPanel.RIGHT;
@@ -139,7 +139,7 @@ public class ActionPanel extends JPanel implements UpdateObject
         case Action.MOVE_BACK:
             direction = RobotDirectionPanel.DOWN;
         }
-		direction_panel_.setInternalState(direction);
-		state_panel_.setInternalState(action.GetState()+1);
-	}
+        direction_panel_.setInternalState(direction);
+        state_panel_.setInternalState(action.GetState() + 1);
+    }
 }

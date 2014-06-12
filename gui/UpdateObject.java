@@ -1,6 +1,5 @@
 package gui;
 
-interface UpdateObject
-{
-	void updateParent();
+interface UpdateObject {
+    void updateParent();
 }

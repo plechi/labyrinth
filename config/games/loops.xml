@@ -11,10 +11,10 @@
     <WallSymbol> W </WallSymbol>
     <DiamondSymbol> D </DiamondSymbol>
     <WaySymbol> . </WaySymbol>
-    		<ZeroSymbol> 0 </ZeroSymbol>
-		<OneSymbol> 1 </OneSymbol>
-		<TwoSymbol> 2 </TwoSymbol>
-		<ThreeSymbol> 3 </ThreeSymbol>
+    <ZeroSymbol> 0 </ZeroSymbol>
+    <OneSymbol> 1 </OneSymbol>
+    <TwoSymbol> 2 </TwoSymbol>
+    <ThreeSymbol> 3 </ThreeSymbol>
     <StartingDirection> UP </StartingDirection>
     <LabyrinthField>
 WWWWWWWWWWWWWWWWWWWW
@@ -39,7 +39,7 @@ W.WWWWWWWWWWWWWWWWWW
 WSWWWWWWWWWWWWWWWWWW
     </LabyrinthField>
   </Labyrinth>
-    <Create>
+  <Create>
     <Diamonds> 20 </Diamonds>
     <WayCells> 150 </WayCells>
     <MinWayLenght> 3 </MinWayLenght>

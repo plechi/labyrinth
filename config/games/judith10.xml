@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE LabyrinthLevel SYSTEM "LabyrinthLevel.dtd">
 <LabyrinthLevel>
-	<Name> Labyrinth 10 </Name>
-	<Dimension>
-		<width> 20 </width>
-		<height> 20 </height>
-	</Dimension>
-	<Labyrinth>
-		<StartSymbol> S </StartSymbol>
-		<WallSymbol> W </WallSymbol>
-		<DiamondSymbol> D </DiamondSymbol>
-		<WaySymbol> . </WaySymbol>
-		<ZeroSymbol> 0 </ZeroSymbol>
-		<OneSymbol> 1 </OneSymbol>
-		<TwoSymbol> 2 </TwoSymbol>
-		<ThreeSymbol> 3 </ThreeSymbol>
-		<StartingDirection> UP </StartingDirection>
-		<LabyrinthField>
+  <Name> Labyrinth 10 </Name>
+  <Dimension>
+    <width> 20 </width>
+    <height> 20 </height>
+  </Dimension>
+  <Labyrinth>
+    <StartSymbol> S </StartSymbol>
+    <WallSymbol> W </WallSymbol>
+    <DiamondSymbol> D </DiamondSymbol>
+    <WaySymbol> . </WaySymbol>
+    <ZeroSymbol> 0 </ZeroSymbol>
+    <OneSymbol> 1 </OneSymbol>
+    <TwoSymbol> 2 </TwoSymbol>
+    <ThreeSymbol> 3 </ThreeSymbol>
+    <StartingDirection> UP </StartingDirection>
+    <LabyrinthField>
 WWWWWWWWWWWWWWWWWWWW
 W..................W
 W..WWWWDWW.WWW.....W
@@ -37,6 +37,6 @@ W..WWWWWW.WWWWWWWWWW
 W..WWWWWW.WWWWWWWWWW
 W.......W.WWWWWWWWWW
 WWWWWWWWWSWWWWWWWWWW
-		</LabyrinthField>
-	</Labyrinth>
+    </LabyrinthField>
+  </Labyrinth>
 </LabyrinthLevel>
