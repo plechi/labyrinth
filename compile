@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# For Windows, compilation works with something like
+# "C:\Program Files\Java\jdk1.8.0_05\bin\javac.exe" -deprecation -Xlint:unchecked controller\*.java gui\*.java
+
 JAVAC="/usr/lib/jvm/java-7-oracle/bin/javac"
 JAVADOC="/usr/lib/jvm/java-7-oraclebin/javadoc"
 
