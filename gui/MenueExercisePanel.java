@@ -99,7 +99,7 @@ class MenueExercisePanel extends javax.swing.JPanel {
                     tmp = count - 1;
                 }
             }
-            final JComboBox level_of_difficulty_ = new JComboBox(level_list_);
+            final JComboBox<String> level_of_difficulty_ = new JComboBox<String>(level_list_);
             level_of_difficulty_.setBounds(465, 8, 155, 20);
             this.add(level_of_difficulty_);
             this.add(info_);
@@ -107,13 +107,13 @@ class MenueExercisePanel extends javax.swing.JPanel {
             if (level_of_difficulty_.getActionListeners().length == 0) {
                 level_of_difficulty_
                         .addActionListener(new java.awt.event.ActionListener() {
+                            @Override
                             public void actionPerformed(
                                     java.awt.event.ActionEvent evt) { // Load
                                                                       // rules
                                                                       // button
                                                                       // pressed
                                 JComboBox cb = (JComboBox) evt.getSource();
-                                String name = (String) cb.getSelectedItem();
                                 current_selected_ = cb.getSelectedIndex() + 1;
                                 simulation_control_
                                         .drawNewLabyrinth(current_selected_);
