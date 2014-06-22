@@ -18,7 +18,7 @@ public class RuleTreePanel extends javax.swing.JPanel {
     private HashMap brick_images_;
     private IntStringMap mark_array_;
     private IntStringMap state_array_;
-    private ArrayList rule_list_;
+    private ArrayList<RulePanel> rule_list_;
     private Dimension start_dimension_;
     private ControllerGuiCommunicator communicator_;
     private InstructionList instruction_list_;
@@ -31,7 +31,7 @@ public class RuleTreePanel extends javax.swing.JPanel {
         mark_array_ = mark_array;
         state_array_ = state_array;
         start_dimension_ = this.getSize();
-        rule_list_ = new ArrayList();
+        rule_list_ = new ArrayList<>();
         instruction_list_ = new InstructionList();
     }
 
@@ -42,7 +42,7 @@ public class RuleTreePanel extends javax.swing.JPanel {
         brick_images_ = brick_images;
         mark_array_ = mark_array;
         state_array_ = state_array;
-        rule_list_ = new ArrayList();
+        rule_list_ = new ArrayList<>();
         instruction_list_ = new InstructionList();
         start_dimension_ = dimension;
         this.setSize(start_dimension_);
@@ -98,7 +98,7 @@ public class RuleTreePanel extends javax.swing.JPanel {
 
     public void updateRule(int id, Instruction instruction) {
         for (int index = 0; index < rule_list_.size(); index++) {
-            RulePanel tmp = (RulePanel) rule_list_.get(index);
+            RulePanel tmp = rule_list_.get(index);
             if (tmp.getID() == id) {
                 tmp.updateInstruction(instruction);
                 instruction_list_.setInstruction(index, instruction);
@@ -123,7 +123,7 @@ public class RuleTreePanel extends javax.swing.JPanel {
         RulePanel ret_rule = new RulePanel(brick_images_, mark_array_,
                 state_array_, id, this);
         for (int index = 0; index < rule_list_.size(); index++) {
-            RulePanel tmp = (RulePanel) rule_list_.get(index);
+            RulePanel tmp = rule_list_.get(index);
             if (tmp.getID() == id) {
                 ret_rule = tmp;
             }
