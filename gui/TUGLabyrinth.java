@@ -49,7 +49,7 @@ public class TUGLabyrinth extends javax.swing.JApplet implements Runnable {
     private static BrickImages images_;
     private static LevelHandler level_handler_;
     private IntStringMap mark_array_, state_array_;
-    private String typ_, cookie_, file_name_, version_;
+    private String type_, cookie_, file_name_, version_;
 
     private ControllerGuiCommunicator controller_gui_communicator_;
     private ControlSimulation control_simulation_;
@@ -69,6 +69,7 @@ public class TUGLabyrinth extends javax.swing.JApplet implements Runnable {
      * understand the source is:
      * Applet->LevelHandler->LoadLabyrinth->LabyrinthField
      */
+    @Override
     public void init() {
         // BEGIN OF WINDOW SETUP
         // ****************************************************************
@@ -99,14 +100,14 @@ public class TUGLabyrinth extends javax.swing.JApplet implements Runnable {
 
         if (getParameter("typ") != null) {
             if (getParameter("typ").equals("exam")) {
-                typ_ = "exam";
+                type_ = "exam";
                 System.out.println("exam: ");
             } else if (getParameter("typ").equals("exercise")) {
                 System.out.println("exercise: ");
-                typ_ = "exercise";
+                type_ = "exercise";
             } else {
                 System.out.println("normal: ");
-                typ_ = "normal";
+                type_ = "normal";
             }
         } else {
             System.out
@@ -122,21 +123,22 @@ public class TUGLabyrinth extends javax.swing.JApplet implements Runnable {
         } else
             System.out.println("take file: " + abs_filename);
 
-        URL new_url = null;
+        URL new_url;
         try {
             new_url = new URL(getDocumentBase(), abs_filename);
             TUGInformations.setGameDocumentBase(new_url);
+            file_name_ = new_url.toString(); // "Game.xml", Level-Info
         } catch (MalformedURLException ex) {
             System.err.println(ex.getMessage());
         }
-        file_name_ = new_url.toString(); // "Game.xml", Level-Info
 
         TUGInformations.setDocumentBase(getDocumentBase());
         TUGInformations.setCodeBase(getCodeBase());
         TUGInformations.setAppletContext(getAppletContext());
         TUGInformations.addGameFileName(file_name_);
 
-        try {
+        // TODO: remove code block
+        /*try {
             cookie_ = (String) JSObject.getWindow(this).eval("document.cookie");
             // System.out.println("Cookie == " + cookie_);
         } catch (Exception ex) {
@@ -154,9 +156,12 @@ public class TUGLabyrinth extends javax.swing.JApplet implements Runnable {
             SqlCommunicator.init(cookie_, logger_url, user_id, log_level);
         } catch (Exception e) {
             System.out.println("Log writing failed! (Could not get code base)");
-        }
+        }*/
+
+        String user_id = "4242";
+
         SqlCommunicator.add_log("Appleteinstellungen: BenutzerID= " + user_id
-                + " Labyrinthmodus= " + typ_ + " verwende " + abs_filename
+                + " Labyrinthmodus= " + type_ + " verwende " + abs_filename
                 + " Loglevel= " + log_level + " Version= " + version, 1);
 
         String line_separator = System.getProperty("line.separator");
@@ -227,7 +232,7 @@ public class TUGLabyrinth extends javax.swing.JApplet implements Runnable {
                 speed_panel_, level_button_, status_message_, level_handler_,
                 mark_array_);
 
-        if (typ_ == "exam") {
+        if (type_.equals("exam")) {
             rule_tree_scrollpane_.setBounds(5, 35, 248, height - 40 + 1);
             level_button_.setBounds(730, 510, 150, 30);
             print_labyrinth_.setBounds(265, 70, 400, 400);
@@ -242,7 +247,7 @@ public class TUGLabyrinth extends javax.swing.JApplet implements Runnable {
                     level_handler_, mark_array_, this);
             control_level_.drawNewLabyrinth(menue_exam_panel_
                     .getCurrentSelected());
-        } else if (typ_ == "exercise") {
+        } else if (type_.equals("exercise")) {
             rule_tree_scrollpane_.setBounds(5, 35, 248, height - 40 + 1);
             level_button_.setBounds(730, 510, 150, 30);
             print_labyrinth_.setBounds(265, 70, 400, 400);
@@ -307,19 +312,23 @@ public class TUGLabyrinth extends javax.swing.JApplet implements Runnable {
      * button's action listener defined in init()
      */
 
+    @Override
     public void start() {
         SqlCommunicator.add_log("Starting applet ", 1);
         SqlCommunicator.flush_log();
     }
 
+    @Override
     public void stop() {
         SqlCommunicator.add_log("Stopping applet ", 1);
         SqlCommunicator.flush_log();
     }
 
+    @Override
     public void destroy() {
     }
 
+    @Override
     public synchronized void run() {
 
     }
