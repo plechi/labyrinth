@@ -20,7 +20,7 @@ class MenueExamPanel extends javax.swing.JPanel {
     private LevelHandler level_handler_;
     private JButton help_button_, new_rule_button_, next_button_;
     private int current_selected_;
-    private ArrayList levels_;
+    private ArrayList<Integer> levels_;
     private Timer timer_;
     private ControlSimulation simulation_control_;
     private MenueExamPanel this_;
@@ -47,7 +47,7 @@ class MenueExamPanel extends javax.swing.JPanel {
         this.add(help_button_);
         this.add(new_rule_button_);
         this.add(next_button_);
-        levels_ = new ArrayList();
+        levels_ = new ArrayList<Integer>();
         drawNextButton();
         drawNewRuleButton();
         drawHelpButton();
@@ -61,6 +61,7 @@ class MenueExamPanel extends javax.swing.JPanel {
         help_button_.setText("Hilfe");
         if (help_button_.getActionListeners().length == 0) {
             help_button_.addActionListener(new java.awt.event.ActionListener() {
+                @Override
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     simulation_control_.printHelp();
                     // SqlCommunicator.add_log("Help button pressed");
@@ -80,6 +81,7 @@ class MenueExamPanel extends javax.swing.JPanel {
         if (new_rule_button_.getActionListeners().length == 0) {
             new_rule_button_
                     .addActionListener(new java.awt.event.ActionListener() {
+                        @Override
                         public void actionPerformed(
                                 java.awt.event.ActionEvent evt) { // Load rules
                                                                   // button
@@ -102,18 +104,16 @@ class MenueExamPanel extends javax.swing.JPanel {
             // HACK -----drawNextButton darf nur 1 mal aufgerufen werden!!!
             int num_levels = level_handler_.getNumLevels();
             if (num_levels >= 3) {
-                levels_.add((Object) 1);
-                levels_.add((Object) 2);
-                ArrayList tmp = new ArrayList();
+                levels_.add(1);
+                levels_.add(2);
+                ArrayList<Integer> tmp = new ArrayList<>();
                 final Random random_generator_ = new Random();
                 for (int i = 3; i <= num_levels; i++)
-                    tmp.add((Object) i);
+                    tmp.add(i);
                 for (int i = 3; i <= num_levels; i++)
                     levels_.add(tmp.remove(random_generator_.nextInt(tmp.size())));
-                if (levels_.size() > 0) {
-
+                if (levels_.size() > 0)
                     current_selected_ = (Integer) levels_.remove(0);
-                }
             } else
                 System.err.println("More than 3 Levels requested");
             // -----------------------------------------------------------
@@ -133,11 +133,13 @@ class MenueExamPanel extends javax.swing.JPanel {
         next_button_.setVisible(false);
         timer_ = new Timer();
         timer_.schedule(new TimerTask() {
+            @Override
             public void run() {
                 next_button_.setVisible(true);
                 if (next_button_.getActionListeners().length == 0) {
                     next_button_
                             .addActionListener(new java.awt.event.ActionListener() {
+                                @Override
                                 public void actionPerformed(
                                         java.awt.event.ActionEvent evt) {
                                     // SqlCommunicator.add_log("Next button pressed");
