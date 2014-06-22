@@ -17,8 +17,6 @@ import controller.TUGInformations;
 
 import java.lang.System;
 
-import netscape.javascript.*;
-
 /*
  * JApplet.java
  *
