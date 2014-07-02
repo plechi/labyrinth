@@ -1,5 +1,4 @@
 package gui;
-
 /*Copyright 2004-2005 Univ.Prof. Dipl.-Ing. Dr.techn. Wolfgang SLANY,
  Andreas Augustin, Sandra Durasiewicz, Bojan Hrnkas, Markus Köberl,
  Bernhard Kornberger, Susanne Schöberl
@@ -20,6 +19,7 @@ package gui;
  along with Neptune-Robot-Simulation; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  US
  */
+
 import java.util.HashMap;
 import javax.swing.ImageIcon;
 import java.awt.Image;
@@ -38,11 +38,12 @@ public class BrickImages {
 
     private Image loadImage(String name) {
         ImageIcon icon = null;
-        if (image_folder_ == null)
+        if (image_folder_ == null) {
             image_folder_ = "";
+        }
         try {
-            icon = new ImageIcon(
-                    new URL(code_base_, image_folder_ + "/" + name));
+            icon = new ImageIcon(new URL(code_base_, image_folder_ + "/"
+                    + name));
             return icon.getImage();
         } catch (MalformedURLException e) {
             System.out.println("Failed to create URL:\n" + e);
@@ -52,11 +53,12 @@ public class BrickImages {
 
     private ImageIcon loadIcon(String name) {
         ImageIcon icon = null;
-        if (image_folder_ == null)
+        if (image_folder_ == null) {
             image_folder_ = "";
+        }
         try {
-            icon = new ImageIcon(
-                    new URL(code_base_, image_folder_ + "/" + name));
+            icon = new ImageIcon(new URL(code_base_, image_folder_ + "/"
+                    + name));
             return icon;
         } catch (MalformedURLException e) {
             System.out.println("Failed to create URL:\n" + e);
@@ -72,7 +74,8 @@ public class BrickImages {
     public HashMap loadImages() {
         brick_images_ = new HashMap();
         // load the images which are display at the brick_rules panel
-        image_folder_ = "Images";
+        image_folder_ = "src/images";
+
         brick_images_.put("CONDITION_DEFAULT", loadImage("images.jpg"));
         brick_images_.put("CONDITION_HOVER", loadImage("images1.jpg"));
         brick_images_.put("ACTION_DEFAULT", loadImage("images2.jpg"));
@@ -138,13 +141,12 @@ public class BrickImages {
         brick_images_.put("LAB_ROBOT_RED_UP", loadImage("robot_red_up.gif"));
         brick_images_.put("LAB_ROBOT_RED_RIGHT",
                 loadImage("robot_red_right.gif"));
-        brick_images_
-                .put("LAB_ROBOT_RED_DOWN", loadImage("robot_red_down.gif"));
-        brick_images_
-                .put("LAB_ROBOT_RED_LEFT", loadImage("robot_red_left.gif"));
+        brick_images_.put("LAB_ROBOT_RED_DOWN",
+                loadImage("robot_red_down.gif"));
+        brick_images_.put("LAB_ROBOT_RED_LEFT",
+                loadImage("robot_red_left.gif"));
 
-        brick_images_.put("LAB_ROBOT_YELLOW_UP",
-                loadImage("robot_yellow_up.gif"));
+        brick_images_.put("LAB_ROBOT_YELLOW_UP", loadImage("robot_yellow_up.gif"));
         brick_images_.put("LAB_ROBOT_YELLOW_RIGHT",
                 loadImage("robot_yellow_right.gif"));
         brick_images_.put("LAB_ROBOT_YELLOW_DOWN",
@@ -153,12 +155,9 @@ public class BrickImages {
                 loadImage("robot_yellow_left.gif"));
 
         brick_images_.put("LAB_ROBOT_GRAY_UP", loadImage("robot_gray_up.gif"));
-        brick_images_.put("LAB_ROBOT_GRAY_RIGHT",
-                loadImage("robot_gray_right.gif"));
-        brick_images_.put("LAB_ROBOT_GRAY_DOWN",
-                loadImage("robot_gray_down.gif"));
-        brick_images_.put("LAB_ROBOT_GRAY_LEFT",
-                loadImage("robot_gray_left.gif"));
+        brick_images_.put("LAB_ROBOT_GRAY_RIGHT", loadImage("robot_gray_right.gif"));
+        brick_images_.put("LAB_ROBOT_GRAY_DOWN", loadImage("robot_gray_down.gif"));
+        brick_images_.put("LAB_ROBOT_GRAY_LEFT", loadImage("robot_gray_left.gif"));
 
         brick_images_.put("LAB_CELLMARK0", loadImage("lab_cellmark0.gif"));
         brick_images_.put("LAB_CELLMARK1", loadImage("lab_cellmark1.gif"));
