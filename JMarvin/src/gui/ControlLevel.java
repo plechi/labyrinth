@@ -31,7 +31,7 @@ public class ControlLevel {
     private RunLab run_lab_;
     private Thread th_;
     private boolean wait_, wait_step_;
-    private ControlLevel controllevel_;
+    private ControlLevel controllevel_ = this;
     private LabyrinthXpertMode xpert_mode_;
     private int level_;
     private String source_;
@@ -49,10 +49,9 @@ public class ControlLevel {
         level_handler_ = level_handler;
         instruction_list_ = new InstructionList();
         wait_step_ = false;
-        controllevel_ = this;
         xpert_mode_ = new LabyrinthXpertMode(mark_array);
         level_ = 0;
-        source_ = new String("");
+        source_ = "";
     }
 
     public void setCommunicationElements(
@@ -315,7 +314,6 @@ public class ControlLevel {
                     .getPossibleInstructions();
             status_message_.setNewFirstLine(turing_machine_.getMessage());
             controller_gui_communicator_.newActiveInstructionList(possible);
-
             if (speed_panel_.getDelay() > 0) {
                 while (wait_ == true) {
                     th_.sleep(100);
@@ -332,8 +330,9 @@ public class ControlLevel {
 
             boolean step_ok = turing_machine_
                     .makeSingleStepWithRandInstruction();
-
             if (step_ok == false) {
+                th_.interrupt();
+                th_ = null;
                 // status_message_.setNewSecondLine("   Oje, der Roboter ist in die Wand gekracht!");
                 status_message_.setNewSecondLine(turing_machine_.getMessage());
                 // SqlCommunicator.add_log(turing_machine_.getMessage(), 8);
@@ -346,6 +345,7 @@ public class ControlLevel {
                 status_message_.setNewSecondLine("   Programm läuft...");
 
             if (step_ok == false) {
+     
                 if (turing_machine_.getMessage() == "   ")
                     SqlCommunicator
                             .add_log(
@@ -372,6 +372,7 @@ public class ControlLevel {
             }
         } catch (InterruptedException ex) {
             System.err.println(ex.getMessage());
+            
         }
 
         if (turing_machine_.checkReturnedToStartPoint() == true) {
