@@ -7,6 +7,8 @@ import controller.TUGInformations;
 import static controller.TUGInformations.*;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -65,10 +67,9 @@ public class TUGLabyrinth extends JFrame {
 
     public TUGLabyrinth() {
         try {
-            //TODO
+            // RUPTHO: TODO
             // very very VERY quick hack
-            // current approach is really nasty.... should replace it with 
-            // classLoader.getResource() i guess
+            // should maybe? replace it with classLoader.getResource()
             // Not done yet because we have to research, 
             // how the final folder structure for the jnlp file has to look like
             setDocumentBase(new URL("file://" + new File("src").getAbsolutePath()));
@@ -78,8 +79,18 @@ public class TUGLabyrinth extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // RUPHTO: will close the window and terminate ALL threads
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+
         init();
         setSize(1000, 1000);
+
         setVisible(true);
     }
 
@@ -89,12 +100,12 @@ public class TUGLabyrinth extends JFrame {
      * understand the source is:
      * Applet->LevelHandler->LoadLabyrinth->LabyrinthField
      */
-    public void init() {
+    public final void init() {
         // BEGIN OF WINDOW SETUP ****************************************************************
       /*  
-        I dont think this is really useful or needed..........
+         RUPTHO: I dont think this is really useful or needed..........
         
-        SqlCommunicator.add_log("Starting Applet", 1);
+         SqlCommunicator.add_log("Starting Applet", 1);
          int log_level = 0;
          if (getParameter("logging") != null) {
          try {
