@@ -62,6 +62,7 @@ public class LabyrinthXpertFrame extends JPanel implements WindowListener {
         frame_.getContentPane().add(scrollpane_, BorderLayout.CENTER);
         frame_.addWindowListener(this);
         frame_.setSize(600, 800);
+        frame_.setLocationRelativeTo(null);
         frame_.setVisible(true);
         this.repaint();
     }

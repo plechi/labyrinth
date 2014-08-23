@@ -73,6 +73,7 @@ public class InstructionXpertFrame extends JPanel implements WindowListener {
         frame_.getContentPane().add(scrollpane_, BorderLayout.CENTER);
         frame_.addWindowListener(this);
         frame_.setSize(300, 600);
+        frame_.setLocationRelativeTo(null);
         frame_.setVisible(true);
         this.repaint();
     }

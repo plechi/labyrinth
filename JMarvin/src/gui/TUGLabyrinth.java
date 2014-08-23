@@ -89,8 +89,9 @@ public class TUGLabyrinth extends JFrame {
         });
 
         init();
-        setSize(1000, 1000);
-
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setSize(950, 580);
         setVisible(true);
     }
 
@@ -146,6 +147,7 @@ public class TUGLabyrinth extends JFrame {
          }
 
          String abs_filename = getParameter("abs_filename");*/
+        setTitle("Neptun Roboter Simulation");
         String abs_filename = null;
         if (abs_filename == null) {
             abs_filename = getDocumentBase().getFile() + "/config/games/Game.xml";
