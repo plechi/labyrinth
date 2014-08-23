@@ -165,6 +165,7 @@ public class MenuePanel {
         // ***********************************************
 
         // BEGIN OF HELP BUTTON *********************************************
+      /* RUPTHO: for now, no help button
         help_ = new JMenuItem("Hilfe");
         help_.setBackground(new Color(127, 127, 127));
         help_.setForeground(Color.ORANGE);
@@ -174,7 +175,7 @@ public class MenuePanel {
                 // HelpWindow help_window=new HelpWindow(url_);
                 // help_window.showHelpWindow();
             }
-        });
+        });*/
         // END OF HELP BUTTON ***********************************************
 
         menue_ = new JMenuBar();
@@ -190,7 +191,7 @@ public class MenuePanel {
         menue_.add(new_labyrinth_);
         menue_.add(level_of_difficulty_);
         index_of_draw_difficult_menue_ = menue_.getMenuCount();
-        menue_.add(help_);
+//        menue_.add(help_);
         menue_.setBackground(new Color(127, 127, 127));
         top_.setJMenuBar(menue_);
     }
