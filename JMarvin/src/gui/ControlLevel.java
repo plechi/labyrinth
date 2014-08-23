@@ -15,6 +15,7 @@ import controller.LabyrinthXpertMode;
 import controller.IntStringMap;
 
 public class ControlLevel {
+
     ControllerGuiCommunicator controller_gui_communicator_;
     ControlSimulation control_simulation_;
 
@@ -64,19 +65,21 @@ public class ControlLevel {
     public void changedSpeed() {
         if (speed_panel_.getDelay() == 0) {
             SqlCommunicator.add_log("Schrittmodus aktiviert", 16);
-            if (turing_machine_.checkStartPoint() == true)
+            if (turing_machine_.checkStartPoint() == true) {
                 startButton();
-            else
+            } else {
                 stepButton();
+            }
             wait_ = false;
             wait_step_ = true;
         } else {
             SqlCommunicator.add_log("Geschwindigkeit geändert zu: "
                     + speed_panel_.getDelay(), 16);
-            if (turing_machine_.checkStartPoint() == true)
+            if (turing_machine_.checkStartPoint() == true) {
                 startButton();
-            else
+            } else {
                 stopButton();
+            }
             wait_ = false;
             wait_step_ = false;
         }
@@ -84,8 +87,9 @@ public class ControlLevel {
 
     private void startButton() {
         ActionListener[] tmp = level_button_.getActionListeners();
-        if (tmp.length > 0)
+        if (tmp.length > 0) {
             level_button_.removeActionListener(tmp[0]);
+        }
         level_button_.setText("Neustart !");
         level_button_.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,27 +132,30 @@ public class ControlLevel {
                             + dummy.toString();
                 }
                 SqlCommunicator.add_log(current_program, 64);
-                if (speed_panel_.getDelay() == 0)
+                if (speed_panel_.getDelay() == 0) {
                     stepButton();
-                else
+                } else {
                     stopButton();
+                }
 
                 wait_ = false;
-
                 if (th_ != null) {
                     run_lab_.finish();
                     th_.interrupt();
+                    th_ = null;
+                    /* Removed: caused endless loop due to sloppy code
                     while (!th_.isInterrupted()) {
                         try {
                             th_.sleep(10);
                         } catch (InterruptedException e) {
                             th_.interrupt();
+                            th_ = null;
                             break;
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                    }
-                }
+                    }*/
+                } 
                 run_lab_ = new RunLab(controllevel_);
                 th_ = new Thread(run_lab_, "RUN LAB");
                 th_.start();
@@ -158,8 +165,9 @@ public class ControlLevel {
 
     private void stopButton() {
         ActionListener[] tmp = level_button_.getActionListeners();
-        if (tmp.length > 0)
+        if (tmp.length > 0) {
             level_button_.removeActionListener(tmp[0]);
+        }
         level_button_.setText("Stopp ");
         level_button_.repaint();
         level_button_.addActionListener(new java.awt.event.ActionListener() {
@@ -168,10 +176,11 @@ public class ControlLevel {
                 SqlCommunicator.add_log("Stopp Knopf getrückt", 4);
                 xpert_mode_.setLabyrinthField(labyrinth_field_);
                 String current = "";
-                if (level_ == 0)
+                if (level_ == 0) {
                     current = xpert_mode_.getCurrentLabyrinth(source_);
-                else
+                } else {
                     current = xpert_mode_.getCurrentLabyrinth(level_);
+                }
                 SqlCommunicator.add_log(current, 1024);
                 wait_ = true;
             }
@@ -180,11 +189,13 @@ public class ControlLevel {
 
     private void stepButton() {
         ActionListener[] tmp = level_button_.getActionListeners();
-        if (tmp.length > 0)
+        if (tmp.length > 0) {
             level_button_.removeActionListener(tmp[0]);
+        }
         level_button_.setText("Schritt ");
         status_message_.setNewSecondLine("   warte auf nächsten Schritt...");
         level_button_.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 instruction_list_ = controller_gui_communicator_
                         .getInstructionListFromRuleTree();
@@ -321,8 +332,9 @@ public class ControlLevel {
                 th_.sleep(speed_panel_.getDelay());
             } else {
                 wait_step_ = true;
-                while (wait_step_)
+                while (wait_step_) {
                     th_.sleep(100);
+                }
                 /*
                  * try{ th_.wait(); } catch(InterruptedException e) {}
                  */
@@ -331,40 +343,42 @@ public class ControlLevel {
             boolean step_ok = turing_machine_
                     .makeSingleStepWithRandInstruction();
             if (step_ok == false) {
-                th_.interrupt();
-                th_ = null;
                 // status_message_.setNewSecondLine("   Oje, der Roboter ist in die Wand gekracht!");
                 status_message_.setNewSecondLine(turing_machine_.getMessage());
                 // SqlCommunicator.add_log(turing_machine_.getMessage(), 8);
-            } else if (step_ok == true && speed_panel_.getDelay() == 0)
+            } else if (step_ok == true && speed_panel_.getDelay() == 0) {
                 status_message_
                         .setNewSecondLine("   warte auf nächsten Schritt...");
-            else if (wait_ == true)
+            } else if (wait_ == true) {
                 status_message_.setNewSecondLine("   Programm angehalten...");
-            else
+            } else {
                 status_message_.setNewSecondLine("   Programm läuft...");
+            }
 
             if (step_ok == false) {
-     
-                if (turing_machine_.getMessage() == "   ")
+                if (turing_machine_.getMessage().compareTo("   ") == 0) {
                     SqlCommunicator
                             .add_log(
                                     "Keine Regel gefunden, das Programm ist nicht vollständig!",
                                     8);
-                else
+                } else {
                     SqlCommunicator.add_log(turing_machine_.getMessage(), 8);
+                }
                 xpert_mode_.setLabyrinthField(labyrinth_field_);
                 String current = "";
-                if (level_ == 0)
+                if (level_ == 0) {
                     current = xpert_mode_.getCurrentLabyrinth(source_);
-                else
+                } else {
                     current = xpert_mode_.getCurrentLabyrinth(level_);
+                }
                 // System.out.println("Laby: \n"+current);
                 SqlCommunicator.add_log(current, 1024);
                 // SqlCommunicator.flush_log();
                 wait_ = true;
-                if (speed_panel_.getDelay() != 0)
+
+                if (speed_panel_.getDelay() != 0) {
                     startButton();
+                }
             } else {
                 statistics_panel_.refreshPanel(robot_.getNumSteps(),
                         robot_.getNumTakenThings(),
@@ -372,7 +386,7 @@ public class ControlLevel {
             }
         } catch (InterruptedException ex) {
             System.err.println(ex.getMessage());
-            
+
         }
 
         if (turing_machine_.checkReturnedToStartPoint() == true) {
@@ -389,10 +403,11 @@ public class ControlLevel {
                                     8);
                     xpert_mode_.setLabyrinthField(labyrinth_field_);
                     String current = "";
-                    if (level_ == 0)
+                    if (level_ == 0) {
                         current = xpert_mode_.getCurrentLabyrinth(source_);
-                    else
+                    } else {
                         current = xpert_mode_.getCurrentLabyrinth(level_);
+                    }
                     SqlCommunicator.add_log(current, 1024);
                     SqlCommunicator.flush_log();
                     control_simulation_.levelFinished();
@@ -424,10 +439,11 @@ public class ControlLevel {
                                     8);
                     xpert_mode_.setLabyrinthField(labyrinth_field_);
                     String current = "";
-                    if (level_ == 0)
+                    if (level_ == 0) {
                         current = xpert_mode_.getCurrentLabyrinth(source_);
-                    else
+                    } else {
                         current = xpert_mode_.getCurrentLabyrinth(level_);
+                    }
                     SqlCommunicator.add_log(current, 1024);
                     SqlCommunicator.flush_log();
                     System.out.println("Finish, !OK");
