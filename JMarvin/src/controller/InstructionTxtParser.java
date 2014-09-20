@@ -70,7 +70,7 @@ public class InstructionTxtParser {
     public InstructionTxtParser(URL url) {
         InstructionTXTXMLContentHandler handler_ = new InstructionTXTXMLContentHandler();
         try {
-            path_ = (new URL(url, "src/config/InstructionTXT.xml")).toString();
+            path_ = (new URL(url, "config/InstructionTXT.xml")).toString();
         } catch (MalformedURLException ex) {
             System.err.println(ex.getMessage());
         }

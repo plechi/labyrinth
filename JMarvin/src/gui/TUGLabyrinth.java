@@ -12,6 +12,7 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -72,10 +73,12 @@ public class TUGLabyrinth extends JFrame {
             // should maybe? replace it with classLoader.getResource()
             // Not done yet because we have to research, 
             // how the final folder structure for the jnlp file has to look like
-            setDocumentBase(new URL("file://" + new File("src").getAbsolutePath()));
-            setCodeBase(new URL("file://" + new File("src").getAbsolutePath()));
-            System.out.println(getDocumentBase());
-            System.out.println(getCodeBase());
+
+            // this is the source folder where the TUGLabyrinth class is in
+            URL url = TUGLabyrinth.class.getResource("/resources/");
+
+            setDocumentBase(url);
+            setCodeBase(url);
         } catch (Exception e) {
             e.printStackTrace();
         }

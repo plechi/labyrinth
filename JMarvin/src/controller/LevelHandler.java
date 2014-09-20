@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import java.util.LinkedList;
+import org.xml.sax.InputSource;
 
 public class LevelHandler {
 
@@ -72,6 +73,7 @@ public class LevelHandler {
             factory.setValidating(true);
             SAXParser saxParser = factory.newSAXParser();
             XMLReader xmlReader = saxParser.getXMLReader();
+
             /*
              * try { String id = "http://xml.org/sax/features/validation";
              * //xmlReader.setFeature("http://xml.org/sax/features/validation",
@@ -88,8 +90,10 @@ public class LevelHandler {
             xmlReader.setContentHandler(game_xml_content_handler_);
             XMLErrorHandler xml_error_handler = new XMLErrorHandler();
             xmlReader.setErrorHandler(xml_error_handler);
-            xmlReader.parse(filename);
+            xmlReader.parse(new InputSource(LevelHandler.class.getResourceAsStream("/resources/config/games/Game.xml")));
+         
             is_error_ = xml_error_handler.isXMLError();
+
             if (is_error_ == false) {
                 wall_picture_ = game_xml_content_handler_.getWallPicture();
                 way_picture_ = game_xml_content_handler_.getWayPicture();
@@ -101,11 +105,11 @@ public class LevelHandler {
                 level_name_ = game_xml_content_handler_.getLevelNameList();
             }
         } catch (SAXException exc) {
-            System.err.println(exc.getMessage());
+            exc.printStackTrace();
         } catch (ParserConfigurationException exc) {
-            System.err.println(exc.getMessage());
+            exc.printStackTrace();
         } catch (IOException exc) {
-            System.err.println(exc.getMessage());
+            exc.printStackTrace();
         }
     }
 

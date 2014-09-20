@@ -74,7 +74,7 @@ public class BrickImages {
     public HashMap loadImages() {
         brick_images_ = new HashMap();
         // load the images which are display at the brick_rules panel
-        image_folder_ = "src/images";
+        image_folder_ = "images";
 
         brick_images_.put("CONDITION_DEFAULT", loadImage("images.jpg"));
         brick_images_.put("CONDITION_HOVER", loadImage("images1.jpg"));

@@ -230,13 +230,13 @@ public class MenuePanel {
         level_of_difficulty_.setBackground(new Color(127, 127, 127));
         level_of_difficulty_.setForeground(Color.ORANGE);
         difficulty_ = new ButtonGroup();
-
         if (level_handler_ != null) {
             level_name_list_ = level_handler_.getLevelNameList();
             if (labyrinth_xpert_count_ > 0) {
                 radio_list_ = new JRadioButtonMenuItem[level_name_list_.size() + 1];
                 int tmp = level_name_list_.size() + 1;
             } else {
+                 System.out.println(level_name_list_ == null);
                 radio_list_ = new JRadioButtonMenuItem[level_name_list_.size()];
                 int tmp = level_name_list_.size();
             }
