@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE LabyrinthLevel SYSTEM "LabyrinthLevel.dtd">
+<!DOCTYPE LabyrinthLevel [
+    <!ELEMENT LabyrinthLevel (Name, InstructionFile?, Dimension, Labyrinth?, Create?, Style?)>
+    <!ELEMENT Name (#PCDATA)>
+    <!ELEMENT InstructionFile (#PCDATA)>
+    <!ELEMENT Dimension (width, height)>
+    <!ELEMENT width (#PCDATA)>
+    <!ELEMENT height (#PCDATA)>
+    <!ELEMENT Labyrinth (StartSymbol, WallSymbol, DiamondSymbol, WaySymbol, ZeroSymbol, OneSymbol, TwoSymbol, ThreeSymbol, SymbolList?, StartingDirection, LabyrinthField)>
+    <!ELEMENT StartSymbol (#PCDATA)>
+    <!ELEMENT WallSymbol (#PCDATA)>
+    <!ELEMENT DiamondSymbol (#PCDATA)>
+    <!ELEMENT WaySymbol (#PCDATA)>
+    <!ELEMENT ZeroSymbol (#PCDATA)>
+    <!ELEMENT OneSymbol (#PCDATA)>
+    <!ELEMENT TwoSymbol (#PCDATA)>
+    <!ELEMENT ThreeSymbol (#PCDATA)>
+    <!ELEMENT SymbolList (Symbol*)>
+    <!ELEMENT Symbol (CharSymbol, StringSymbol)>
+    <!ELEMENT CharSymbol (#PCDATA)>
+    <!ELEMENT StringSymbol (#PCDATA)>
+    <!ELEMENT StartingDirection (#PCDATA)>
+    <!ELEMENT LabyrinthField (#PCDATA)>
+    <!ELEMENT Create (Diamonds, WayCells, MinWayLenght, MaxWayLenght, BuildAngles, BuildTrees, BuildLoops, BuildPlaces)>
+    <!ELEMENT Diamonds (#PCDATA)>
+    <!ELEMENT WayCells (#PCDATA)>
+    <!ELEMENT MinWayLenght (#PCDATA)>
+    <!ELEMENT MaxWayLenght (#PCDATA)>
+    <!ELEMENT BuildAngles (#PCDATA)>
+    <!ELEMENT BuildTrees (#PCDATA)>
+    <!ELEMENT BuildLoops (#PCDATA)>
+    <!ELEMENT BuildPlaces (#PCDATA)>
+    <!ELEMENT Style (WallPicture, WayPicture, RobotPicture, DiamondPicture, StartPicture)>
+    <!ELEMENT WallPicture (#PCDATA)>
+    <!ELEMENT WayPicture (#PCDATA)>
+    <!ELEMENT RobotPicture (#PCDATA)>
+    <!ELEMENT DiamondPicture (#PCDATA)>
+    <!ELEMENT StartPicture (#PCDATA)>
+]>
 <LabyrinthLevel>
   <Name> Labyrinth 1 </Name>
   <Dimension>

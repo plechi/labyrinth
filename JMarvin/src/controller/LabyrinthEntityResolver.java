@@ -41,7 +41,7 @@ public class LabyrinthEntityResolver implements EntityResolver {
 
     public InputSource resolveEntity(String publicId, String systemId)
             throws SAXException, IOException, MalformedURLException {
-        System.out
+       /* System.out
                 .println("resolveEntity (" + publicId + ", " + systemId + ")");
 
         if (systemId.endsWith("/LabyrinthLevel.dtd"))
@@ -52,16 +52,16 @@ public class LabyrinthEntityResolver implements EntityResolver {
             new_url = new URL(document_base_, systemId.substring(8));
             System.out.println("change URL from " + systemId + " to "
                     + new_url.openStream());
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    new_url.openStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(LabyrinthEntityResolver.class.getResourceAsStream("/resources/config/games/LabyrinthLevel.dtd")));
             in.mark(20000);
             System.out.println("publicId: " + publicId + "\nsystemId: "
                     + systemId + "\nURL: " + new_url.toString());
             return new InputSource(in);
         } catch (MalformedURLException ex) {
             System.err.println(ex.getMessage());
-        }
-        return null;
+        }*/
+        
+        return new InputSource(LabyrinthEntityResolver.class.getResourceAsStream("/resources/config/games/LabyrinthLevel.dtd"));
     }
 
 }

@@ -91,7 +91,7 @@ public class LabyrinthXpertMode {
             xmlReader.setContentHandler(game_xml_content_handler_);
             XMLErrorHandler xml_error_handler = new XMLErrorHandler();
             xmlReader.setErrorHandler(xml_error_handler);
-            xmlReader.parse(file_);
+            xmlReader.parse(new InputSource(LabyrinthXpertMode.class.getResourceAsStream("/resources/config/games/Game.xml")));
             is_error_ = xml_error_handler.isXMLError();
             if (is_error_ == false) {
                 int num_levels = game_xml_content_handler_.getNumLevels();
