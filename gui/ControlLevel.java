@@ -381,7 +381,7 @@ public class ControlLevel {
                     status_message_
                             .setNewFirstLine("   Der Roboter hat das Labyrinth verlassen!");
                     status_message_
-                            .setNewSecondLine("   Gratuliere du hast es geschafft!");
+                            .setNewSecondLine("   Gratuliere! Du hast es geschafft!");
                     SqlCommunicator
                             .add_log(
                                     "Der Roboter hat das Labyrinth verlassen!\nVollständig",
