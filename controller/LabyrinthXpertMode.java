@@ -342,10 +342,8 @@ public class LabyrinthXpertMode {
             xmlReader.setErrorHandler(xml_error_handler);
             xmlReader.parse(level_file_);
             is_error_ = xml_error_handler.isXMLError();
-            if (is_error_ == false)
-                System.out.println("ok!!");
-            else
-                System.out.println("Error!!");
+            if (is_error_)
+                System.out.println("Error in XML handler for current level!");
         } catch (SAXException exc) {
             System.err.println(exc.getMessage());
         } catch (ParserConfigurationException exc) {

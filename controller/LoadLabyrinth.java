@@ -303,7 +303,6 @@ public class LoadLabyrinth {
                     if (labyrinth_xml_content_handler_.isLoadLabyrinth() == true) {
                         // Is not executed at normal operation,
                         // isLoadLabyrinth=false
-                        System.out.println("isLoadLabyrinth()");
                         is_load_labyrinth = true;
                         start_symbol = labyrinth_xml_content_handler_
                                 .getStartSymbol();
@@ -357,7 +356,6 @@ public class LoadLabyrinth {
                     if (labyrinth_xml_content_handler_.isCreateLabyrinth() == true) {
                         // This piece of code is executed at normal operation,
                         // isCreateLabyrinth=true
-                        System.out.println("isCreateLabyrinth()");
                         set_num_diamonds = labyrinth_xml_content_handler_
                                 .getNumDiamonds();
                         set_num_way_cells = labyrinth_xml_content_handler_
@@ -399,7 +397,6 @@ public class LoadLabyrinth {
                 } catch (IllegalArgumentException exc) // SECOND TRY ENDS HERE
                 {
                     labyrinth_field_ = null;
-                    System.out.println("ERROR");
                     if (filename_ != null) {
                         URL new_url = new URL(document_base_, filename_);
                         System.out.println("In File " + new_url.toString());
