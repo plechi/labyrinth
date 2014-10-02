@@ -82,7 +82,7 @@ public class InstructionTxtWriter {
             xmlReader.setErrorHandler(xml_error_handler);
             xmlReader.parse(path_);
         } catch (SAXParseException exc) {
-            System.out.println("ERROR");
+            System.out.println("SAXParseException");
             System.out.println("In File " + exc.getSystemId());
             System.out.println(exc.getMessage());
         } catch (SAXException exc) {
