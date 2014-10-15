@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE LabyrinthGame [
+    <!ELEMENT LabyrinthGame (DefaultLevelStyle?, Levels)>
+    <!ELEMENT DefaultLevelStyle (WallPicture, WayPicture, RobotPicture, DiamondPicture, StartPicture)>
+    <!ELEMENT Levels (Level*)>
+    <!ELEMENT Level (Name, File, InstructionList?)>
+    <!ELEMENT WayPicture (#PCDATA)>
+    <!ELEMENT WallPicture (#PCDATA)>
+    <!ELEMENT RobotPicture (#PCDATA)>
+    <!ELEMENT DiamondPicture (#PCDATA)>
+    <!ELEMENT StartPicture (#PCDATA)>
+    <!ELEMENT Name (#PCDATA)>
+    <!ELEMENT File (#PCDATA)>
+    <!ELEMENT InstructionList (#PCDATA)>
+]>
+<LabyrinthGame>
+  <Levels>
+    <Level>
+      <Name> leichtes Labyrinth </Name>
+      <File> config/games/level1.xml </File>
+    </Level>
+    <Level>
+      <Name> schweres Labyrinth </Name>
+      <File> config/games/level2.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth mit Loops </Name>
+      <File> config/games/loops.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth mit Plätzen </Name>
+      <File> config/games/level5.xml </File>
+    </Level>
+    <Level>
+      <Name> freies Feld </Name>
+      <File> config/games/level4.xml </File>
+    </Level>
+  </Levels>
+</LabyrinthGame>

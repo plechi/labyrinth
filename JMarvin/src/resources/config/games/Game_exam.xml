@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE LabyrinthInstruction [
+    <!ELEMENT LabyrinthLevel (Name, InstructionFile?, Dimension, Labyrinth?, Create?, Style?)>
+    <!ELEMENT Name (#PCDATA)>
+    <!ELEMENT InstructionFile (#PCDATA)>
+    <!ELEMENT Dimension (width, height)>
+    <!ELEMENT width (#PCDATA)>
+    <!ELEMENT height (#PCDATA)>
+    <!ELEMENT Labyrinth (StartSymbol, WallSymbol, DiamondSymbol, WaySymbol, ZeroSymbol, OneSymbol, TwoSymbol, ThreeSymbol, SymbolList?, StartingDirection, LabyrinthField)>
+    <!ELEMENT StartSymbol (#PCDATA)>
+    <!ELEMENT WallSymbol (#PCDATA)>
+    <!ELEMENT DiamondSymbol (#PCDATA)>
+    <!ELEMENT WaySymbol (#PCDATA)>
+    <!ELEMENT ZeroSymbol (#PCDATA)>
+    <!ELEMENT OneSymbol (#PCDATA)>
+    <!ELEMENT TwoSymbol (#PCDATA)>
+    <!ELEMENT ThreeSymbol (#PCDATA)>
+    <!ELEMENT SymbolList (Symbol*)>
+    <!ELEMENT Symbol (CharSymbol, StringSymbol)>
+    <!ELEMENT CharSymbol (#PCDATA)>
+    <!ELEMENT StringSymbol (#PCDATA)>
+    <!ELEMENT StartingDirection (#PCDATA)>
+    <!ELEMENT LabyrinthField (#PCDATA)>
+    <!ELEMENT Create (Diamonds, WayCells, MinWayLenght, MaxWayLenght, BuildAngles, BuildTrees, BuildLoops, BuildPlaces)>
+    <!ELEMENT Diamonds (#PCDATA)>
+    <!ELEMENT WayCells (#PCDATA)>
+    <!ELEMENT MinWayLenght (#PCDATA)>
+    <!ELEMENT MaxWayLenght (#PCDATA)>
+    <!ELEMENT BuildAngles (#PCDATA)>
+    <!ELEMENT BuildTrees (#PCDATA)>
+    <!ELEMENT BuildLoops (#PCDATA)>
+    <!ELEMENT BuildPlaces (#PCDATA)>
+    <!ELEMENT Style (WallPicture, WayPicture, RobotPicture, DiamondPicture, StartPicture)>
+    <!ELEMENT WallPicture (#PCDATA)>
+    <!ELEMENT WayPicture (#PCDATA)>
+    <!ELEMENT RobotPicture (#PCDATA)>
+    <!ELEMENT DiamondPicture (#PCDATA)>
+    <!ELEMENT StartPicture (#PCDATA)>
+]>
+<LabyrinthGame>
+  <Levels>
+    <Level>
+      <Name> Labyrinth 1 </Name>
+      <File> config/games/judith1.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth 2 </Name>
+      <File> config/games/judith2.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth 3 </Name>
+      <File> config/games/judith3.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth 4 </Name>
+      <File> config/games/judith4.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth 5 </Name>
+      <File> config/games/judith5.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth 6 </Name>
+      <File> config/games/judith6.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth 7 </Name>
+      <File> config/games/judith7.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth 8 </Name>
+      <File> config/games/judith8.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth 9 </Name>
+      <File> config/games/judith9.xml </File>
+    </Level>
+    <Level>
+      <Name> Labyrinth 10 </Name>
+      <File> config/games/judith10.xml </File>
+    </Level>
+  </Levels>
+</LabyrinthGame>
