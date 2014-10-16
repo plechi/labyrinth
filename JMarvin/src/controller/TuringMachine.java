@@ -281,7 +281,7 @@ public class TuringMachine {
                 component_.repaint();
                 break;
             } else
-                message_ = "   Keine Regel gefunden, das Programm ist nicht vollständig!";
+                message_ = "   Keine Regel gefunden (Programm nicht vollständig)!";
         }
         return made_step;
     }
@@ -306,7 +306,7 @@ public class TuringMachine {
             }
         }
         if (possible_instructions_.size() == 0)
-            message_ = "   Keine Regel gefunden, das Programm ist nicht vollständig!";
+            message_ = "   Keine Regel gefunden (Programm nicht vollständig)!";
         else if (possible_instructions_.size() == 1)
             message_ = "   " + possible_instructions_.size()
                     + " Regel gefunden";

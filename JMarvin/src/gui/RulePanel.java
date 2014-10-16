@@ -64,7 +64,7 @@ public class RulePanel extends JPanel {
         this.add(acition_panel_);
         this.add(condition_panel_);
         acition_panel_.setBounds(80, 25, 145, 50);
-        condition_panel_.setBounds(2, 2, 84, 76);
+        condition_panel_.setBounds(2, 2, 95, 76);
 
         this.add(active_switch_);
         active_switch_.setBounds(190, 2, 20, 20);

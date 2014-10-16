@@ -94,7 +94,7 @@ public class TUGLabyrinth extends JFrame {
         init();
         setLocationRelativeTo(null);
         setResizable(false);
-        setSize(950, 580);
+        setSize(950, 600);
         setVisible(true);
     }
 
