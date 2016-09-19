@@ -21,12 +21,11 @@ Maven Version & Improvements: Lukas Plechinger & Thorsten Ruprechter
 
 
 
-#Compile
+Compilation
+----------
 
-In the folder `JMarvin` execute
+In the folder JMarvin execute
 
-```bash
 mvn package
-```
 
-After compilation `.jar` file is created in `dist` so you can pack and distribute the `dist` folder.
+After compilation .jar file is created in dist so you can pack and distribute the dist folder.
