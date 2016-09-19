@@ -15,3 +15,18 @@ I am just hosting the source code.
 
 greets,
 prokls
+
+
+Maven Version & Improvements: Lukas Plechinger & Thorsten Ruprechter
+
+
+
+#Compile
+
+In the folder `JMarvin` execute
+
+```bash
+mvn package
+```
+
+After compilation `.jar` file is created in `JMarvin/target`.

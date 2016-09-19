@@ -4,3 +4,4 @@
 .idea/
 JMarvin/src/test/
 /JMarvin/target/
+/dist/*.jar
