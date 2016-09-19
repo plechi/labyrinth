@@ -29,4 +29,4 @@ In the folder `JMarvin` execute
 mvn package
 ```
 
-After compilation `.jar` file is created in `JMarvin/target`.
+After compilation `.jar` file is created in `dist` so you can pack and distribute the `dist` folder.
