@@ -5,3 +5,5 @@
 JMarvin/src/test/
 /JMarvin/target/
 /dist/*.jar
+/dist/JMarvin.tar.gz
+/dist/JMarvin.zip
